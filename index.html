@@ -3,133 +3,234 @@
 <head>
   <meta charset="UTF-8" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
 
   <title>
-    Nadine M. Poe Public Records | Nadine Tran | Nadine Cousins
+    Public Information and Commentary
   </title>
 
   <meta
     name="description"
-    content="Public records, links, reports, Cook County, IL Case # 2015CM41 – Aggravated Assault / Use of Deadly Weapon / Rifle 2/18/2015 – 3/2/2015 and related information regarding Nadine M. Poe, Nadine Tran, Nadine Cousins, and associated public profiles."
+    content="A structured collection of public links, records, commentary, and supporting materials."
   />
 
-  <meta
-    name="keywords"
-    content="Who is Nadine Poe, nadine poe, Nadine Tran, Nadine Cousins, Nadine Viet, Naddy Viet, public records, Georgia records, The Secret Spa - NOVA | Chantilly VA, public links"
-  />
+  <meta name="author" content="Different Guys Publishing" />
 
-  <meta
-    name="author"
-    content="Different Guys Publishing"
-  />
-
-  <meta
-    property="og:title"
-    content="Nadine M. Poe Public Records"
-  />
+  <meta property="og:title" content="Public Information and Commentary" />
 
   <meta
     property="og:description"
-    content="Public records, reports, links, and related images regarding Nadine M. Poe."
+    content="Publicly available links, records, commentary, and supporting materials."
   />
 
-  <meta
-    property="og:image"
-    content="nadinempoe.png"
-  />
-
-  <meta
-    property="og:type"
-    content="website"
-  />
-
-  <meta
-    property="og:url"
-    content="https://nadinepoe.com/"
-  />
-
-  <meta
-    name="twitter:card"
-    content="summary_large_image"
-  />
+  <meta property="og:image" content="lnaddy.png" />
+  <meta property="og:type" content="website" />
 
   <style>
+    :root {
+      --background: #07070d;
+      --background-soft: rgba(255, 255, 255, 0.055);
+      --background-card: rgba(6, 5, 11, 0.78);
+      --pink: #ff4fb8;
+      --pink-light: #ffc7eb;
+      --pink-soft: #ff8bd6;
+      --text: #ffffff;
+      --text-soft: #dec9d9;
+      --border: rgba(255, 255, 255, 0.11);
+      --border-pink: rgba(255, 139, 214, 0.35);
+      --shadow: 0 28px 90px rgba(0, 0, 0, 0.5);
+      --radius-large: 30px;
+      --radius-medium: 20px;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: radial-gradient(circle at top left, #ff4fb8 0%, #1a0b18 32%, #07070d 72%);
-      color: #fff;
       min-height: 100vh;
+      overflow-x: hidden;
+      font-family: Arial, Helvetica, sans-serif;
       line-height: 1.6;
+      color: var(--text);
+      background:
+        radial-gradient(
+          circle at top left,
+          rgba(255, 79, 184, 0.95) 0%,
+          rgba(81, 17, 62, 0.72) 18%,
+          #1a0b18 34%,
+          var(--background) 72%
+        );
+      background-attachment: fixed;
+    }
+
+    body::before {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      content: "";
+      background:
+        linear-gradient(
+          rgba(255, 255, 255, 0.018) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.018) 1px,
+          transparent 1px
+        );
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 85%);
     }
 
     a {
-      color: #ff8bd6;
+      color: var(--pink-soft);
       text-decoration: none;
       word-break: break-word;
     }
 
-    a:hover {
-      color: #fff;
+    a:hover,
+    a:focus-visible {
+      color: #ffffff;
       text-decoration: underline;
     }
 
-    .page {
-      width: min(1120px, 92%);
-      margin: 0 auto;
-      padding: 48px 0;
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
     }
 
-    .hero {
-      min-height: 84vh;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 36px;
+    img {
+      max-width: 100%;
+    }
+
+    .page {
+      width: min(1200px, 92%);
+      margin: 0 auto;
+      padding: 32px 0 48px;
+    }
+
+    /* --------------------------------------------------
+       TOP NAVIGATION
+    -------------------------------------------------- */
+
+    .topbar {
+      position: sticky;
+      top: 12px;
+      z-index: 100;
+      display: flex;
       align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 18px;
+      margin-bottom: 28px;
+      background: rgba(8, 7, 14, 0.78);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      box-shadow: 0 14px 42px rgba(0, 0, 0, 0.28);
+      backdrop-filter: blur(20px);
+    }
+
+    .brand {
+      color: #ffffff;
+      font-size: 0.92rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .brand span {
+      color: var(--pink);
+    }
+
+    .jump-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      padding: 0 16px;
+      color: #ffffff;
+      font-size: 0.88rem;
+      font-weight: 700;
+      background: rgba(255, 79, 184, 0.13);
+      border: 1px solid var(--border-pink);
+      border-radius: 999px;
+    }
+
+    /* --------------------------------------------------
+       HERO
+    -------------------------------------------------- */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+      gap: 34px;
+      align-items: stretch;
+      margin-bottom: 38px;
+    }
+
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 520px;
+      padding: 42px;
+      background: rgba(7, 6, 13, 0.58);
+      border: 1px solid var(--border);
+      border-radius: 34px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
     }
 
     .badge {
-      display: inline-block;
+      display: inline-flex;
+      align-self: flex-start;
       padding: 8px 14px;
-      border: 1px solid rgba(255, 139, 214, 0.45);
-      color: #ffc7eb;
-      border-radius: 999px;
-      background: rgba(255, 79, 184, 0.12);
       margin-bottom: 20px;
-      font-size: 0.88rem;
-      letter-spacing: 0.04em;
+      color: var(--pink-light);
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
+      background: rgba(255, 79, 184, 0.12);
+      border: 1px solid rgba(255, 139, 214, 0.45);
+      border-radius: 999px;
     }
 
     h1 {
-      font-size: clamp(2.6rem, 7vw, 6rem);
+      max-width: 900px;
+      margin-bottom: 22px;
+      font-size: clamp(2.65rem, 6.4vw, 6.4rem);
       line-height: 0.95;
-      letter-spacing: -0.06em;
-      margin-bottom: 20px;
+      letter-spacing: -0.055em;
     }
 
     .highlight {
-      color: #ff4fb8;
+      color: var(--pink);
       text-shadow: 0 0 32px rgba(255, 79, 184, 0.55);
     }
 
     .intro {
-      max-width: 680px;
-      color: #ead7e6;
-      font-size: 1.1rem;
-      margin-bottom: 28px;
+      max-width: 760px;
+      margin-bottom: 12px;
+      color: var(--text-soft);
+      font-size: 1.08rem;
     }
 
     .cta-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 12px;
       margin-top: 24px;
     }
 
@@ -137,302 +238,1641 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 46px;
-      padding: 0 20px;
+      min-height: 48px;
+      padding: 0 21px;
+      color: #14050f;
+      font-weight: 800;
+      background: var(--pink);
+      border: 1px solid rgba(255, 255, 255, 0.16);
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      background: #ff4fb8;
-      color: #10040d;
-      font-weight: 700;
       box-shadow: 0 16px 44px rgba(255, 79, 184, 0.35);
+      transition:
+        transform 160ms ease,
+        box-shadow 160ms ease,
+        background 160ms ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      color: #14050f;
+      text-decoration: none;
+      background: #ff75c7;
+      box-shadow: 0 20px 54px rgba(255, 79, 184, 0.46);
+      transform: translateY(-2px);
     }
 
     .button.secondary {
-      background: rgba(255, 255, 255, 0.06);
-      color: #fff;
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.065);
       box-shadow: none;
     }
 
-    .profile-card {
-      background: rgba(10, 8, 16, 0.72);
-      border: 1px solid rgba(255, 139, 214, 0.28);
-      border-radius: 34px;
-      padding: 34px;
-      box-shadow: 0 28px 90px rgba(0, 0, 0, 0.45);
-      backdrop-filter: blur(18px);
+    .button.secondary:hover,
+    .button.secondary:focus-visible {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.12);
     }
 
-    .photo-upload {
-      width: 230px;
-      height: 230px;
-      border-radius: 50%;
-      margin: 0 auto 26px;
-      border: 3px dashed rgba(255, 139, 214, 0.8);
+    /* --------------------------------------------------
+       HIGHLIGHT IMAGE
+    -------------------------------------------------- */
+
+    .featured-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 520px;
       overflow: hidden;
-      padding: 0;
-      box-shadow: inset 0 0 42px rgba(255, 79, 184, 0.16), 0 0 42px rgba(255, 79, 184, 0.18);
+      background: var(--background-card);
+      border: 1px solid var(--border-pink);
+      border-radius: 34px;
+      box-shadow: var(--shadow);
     }
 
-    .photo-upload img {
+    .featured-label {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      z-index: 2;
+      padding: 9px 14px;
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      background: rgba(7, 6, 12, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 999px;
+      backdrop-filter: blur(12px);
+    }
+
+    .featured-image-wrap {
+      flex: 1;
+      min-height: 410px;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 79, 184, 0.2),
+          rgba(0, 0, 0, 0.24)
+        );
+    }
+
+    .featured-image-wrap img {
+      display: block;
       width: 100%;
       height: 100%;
+      min-height: 410px;
       object-fit: cover;
-      border-radius: 50%;
+      object-position: center;
+    }
+
+    .featured-content {
+      padding: 24px;
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(8, 7, 14, 0.88),
+          rgba(8, 7, 14, 0.98)
+        );
+    }
+
+    .featured-content h2 {
+      margin-bottom: 7px;
+      color: var(--pink-light);
+      font-size: 1.65rem;
+    }
+
+    .featured-content p {
+      color: var(--text-soft);
+      font-size: 0.96rem;
+    }
+
+    /* --------------------------------------------------
+       NOTICE
+    -------------------------------------------------- */
+
+    .editorial-notice {
+      padding: 22px 24px;
+      margin-bottom: 30px;
+      color: var(--text-soft);
+      background: rgba(255, 208, 80, 0.07);
+      border: 1px solid rgba(255, 208, 80, 0.24);
+      border-left: 4px solid #ffd050;
+      border-radius: 18px;
+    }
+
+    .editorial-notice strong {
+      color: #ffe7a5;
+    }
+
+    /* --------------------------------------------------
+       TABS
+    -------------------------------------------------- */
+
+    .tabs-shell {
+      overflow: hidden;
+      background: rgba(5, 5, 10, 0.66);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+
+    .tab-list {
+      display: flex;
+      gap: 8px;
+      padding: 14px;
+      overflow-x: auto;
+      background: rgba(255, 255, 255, 0.035);
+      border-bottom: 1px solid var(--border);
+      scrollbar-width: thin;
+    }
+
+    .tab-button {
+      flex: 1 0 auto;
+      min-height: 48px;
+      padding: 10px 18px;
+      color: #d8c4d3;
+      font: inherit;
+      font-size: 0.94rem;
+      font-weight: 800;
+      cursor: pointer;
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      transition:
+        color 160ms ease,
+        background 160ms ease,
+        border-color 160ms ease,
+        transform 160ms ease;
+    }
+
+    .tab-button:hover,
+    .tab-button:focus-visible {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.07);
+      outline: none;
+    }
+
+    .tab-button[aria-selected="true"] {
+      color: #190711;
+      background: var(--pink);
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 12px 34px rgba(255, 79, 184, 0.28);
+    }
+
+    .tab-panel {
+      display: none;
+      padding: 34px;
+      animation: fadeIn 220ms ease;
+    }
+
+    .tab-panel.active {
       display: block;
     }
 
-    .profile-card h2 {
-      text-align: center;
-      font-size: 2rem;
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(5px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .section-heading {
       margin-bottom: 8px;
+      color: var(--pink-light);
+      font-size: clamp(1.8rem, 4vw, 2.65rem);
+      line-height: 1.08;
     }
 
-    .profile-card p {
-      text-align: center;
-      color: #d9bfd3;
+    .section-description {
+      max-width: 850px;
+      margin-bottom: 25px;
+      color: var(--text-soft);
     }
 
-    .section {
-      margin-top: 54px;
-      padding: 32px;
-      border-radius: 30px;
-      background: rgba(255, 255, 255, 0.055);
-      border: 1px solid rgba(255, 255, 255, 0.09);
+    .note {
+      padding: 15px 17px;
+      margin-bottom: 22px;
+      color: #e7d4e2;
+      background: rgba(255, 79, 184, 0.075);
+      border-left: 3px solid var(--pink);
+      border-radius: 0 14px 14px 0;
     }
 
-    .section h2 {
-      font-size: 2rem;
-      margin-bottom: 18px;
-      color: #ffc7eb;
-    }
+    /* --------------------------------------------------
+       CHIPS
+    -------------------------------------------------- */
 
     .chips {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
+      margin-bottom: 28px;
     }
 
     .chip {
       padding: 9px 13px;
-      border-radius: 999px;
+      color: #ffe2f3;
+      font-size: 0.92rem;
       background: rgba(255, 79, 184, 0.12);
       border: 1px solid rgba(255, 139, 214, 0.25);
-      color: #ffe2f3;
-      font-size: 0.94rem;
+      border-radius: 999px;
     }
 
-    .note {
-      margin-bottom: 18px;
-      color: #d9bfd3;
-      border-left: 3px solid #ff4fb8;
-      padding-left: 14px;
-    }
+    /* --------------------------------------------------
+       LINKS AND CARDS
+    -------------------------------------------------- */
 
-    .link-grid {
+    .card-grid,
+    .link-grid,
+    .image-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 18px;
+      gap: 18px;
     }
 
-    .link-card {
-      padding: 18px;
-      border-radius: 20px;
-      background: rgba(0, 0, 0, 0.26);
-      border: 1px solid rgba(255, 255, 255, 0.09);
+    .link-card,
+    .content-card,
+    .image-card {
+      overflow: hidden;
+      background: rgba(0, 0, 0, 0.27);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-medium);
+      transition:
+        transform 170ms ease,
+        border-color 170ms ease,
+        background 170ms ease;
     }
 
-    .link-card strong {
+    .link-card:hover,
+    .content-card:hover,
+    .image-card:hover {
+      background: rgba(255, 255, 255, 0.055);
+      border-color: rgba(255, 139, 214, 0.31);
+      transform: translateY(-3px);
+    }
+
+    .link-card,
+    .content-card {
+      padding: 20px;
+    }
+
+    .link-card strong,
+    .content-card h3 {
       display: block;
-      color: #fff;
-      margin-bottom: 6px;
+      margin-bottom: 7px;
+      color: #ffffff;
+      font-size: 1.03rem;
     }
+
+    .content-card p {
+      color: var(--text-soft);
+    }
+
+    .content-card ul {
+      padding-left: 20px;
+      color: var(--text-soft);
+    }
+
+    .content-card li + li {
+      margin-top: 7px;
+    }
+
+    /* --------------------------------------------------
+       IMAGE CARDS
+    -------------------------------------------------- */
+
+    .image-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .image-frame {
+      position: relative;
+      min-height: 300px;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 79, 184, 0.14),
+          rgba(255, 255, 255, 0.025)
+        );
+    }
+
+    .image-frame img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 300px;
+      object-fit: cover;
+      transition: transform 280ms ease;
+    }
+
+    .image-card:hover .image-frame img {
+      transform: scale(1.025);
+    }
+
+    .image-placeholder {
+      display: grid;
+      width: 100%;
+      min-height: 300px;
+      place-items: center;
+      padding: 28px;
+      color: #d9bfd3;
+      text-align: center;
+      background:
+        repeating-linear-gradient(
+          -45deg,
+          rgba(255, 255, 255, 0.025),
+          rgba(255, 255, 255, 0.025) 14px,
+          rgba(255, 79, 184, 0.035) 14px,
+          rgba(255, 79, 184, 0.035) 28px
+        );
+      border: 2px dashed rgba(255, 139, 214, 0.38);
+    }
+
+    .image-placeholder span {
+      display: block;
+      max-width: 260px;
+    }
+
+    .image-placeholder strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--pink-light);
+      font-size: 1.05rem;
+    }
+
+    .image-details {
+      padding: 18px;
+    }
+
+    .image-details h3 {
+      margin-bottom: 5px;
+      color: #ffffff;
+    }
+
+    .image-details p {
+      color: var(--text-soft);
+      font-size: 0.92rem;
+    }
+
+    /* --------------------------------------------------
+       QUESTION SECTIONS
+    -------------------------------------------------- */
+
+    .question-banner {
+      padding: 24px;
+      margin-bottom: 24px;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 79, 184, 0.15),
+          rgba(255, 255, 255, 0.025)
+        );
+      border: 1px solid rgba(255, 139, 214, 0.25);
+      border-radius: 22px;
+    }
+
+    .question-banner h3 {
+      margin-bottom: 8px;
+      color: #ffffff;
+      font-size: 1.4rem;
+    }
+
+    .question-banner p {
+      color: var(--text-soft);
+    }
+
+    .subheading {
+      margin: 34px 0 16px;
+      color: var(--pink-light);
+      font-size: 1.45rem;
+    }
+
+    /* --------------------------------------------------
+       FOOTER
+    -------------------------------------------------- */
 
     footer {
-      padding: 38px 0 8px;
+      padding: 42px 0 12px;
       color: #bda6b8;
       text-align: center;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
     }
 
-    @media (max-width: 820px) {
+    footer p + p {
+      margin-top: 5px;
+    }
+
+    /* --------------------------------------------------
+       RESPONSIVE
+    -------------------------------------------------- */
+
+    @media (max-width: 900px) {
       .hero {
         grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
         min-height: auto;
       }
 
-      .profile-card {
-        order: -1;
+      .featured-card {
+        min-height: auto;
       }
 
-      .link-grid {
+      .featured-image-wrap,
+      .featured-image-wrap img {
+        min-height: min(620px, 75vh);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        width: min(94%, 1200px);
+        padding-top: 14px;
+      }
+
+      .topbar {
+        top: 7px;
+        border-radius: 20px;
+      }
+
+      .hero-copy {
+        padding: 30px 24px;
+      }
+
+      h1 {
+        font-size: clamp(2.5rem, 14vw, 4.6rem);
+      }
+
+      .tab-panel {
+        padding: 26px 20px;
+      }
+
+      .card-grid,
+      .link-grid,
+      .image-grid {
         grid-template-columns: 1fr;
+      }
+
+      .image-frame,
+      .image-frame img,
+      .image-placeholder {
+        min-height: 260px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .brand {
+        font-size: 0.76rem;
+      }
+
+      .jump-link {
+        padding: 0 12px;
+        font-size: 0.78rem;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .featured-image-wrap,
+      .featured-image-wrap img {
+        min-height: 430px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
       }
     }
   </style>
 </head>
 
 <body>
-  <main class="page">
-    <section class="hero" id="top">
-      <div>
-        <span class="badge">Nadine M. Poe</span>
-        <h1>Hi! Welcome! Card Fraud? <span class="highlight"> Who is Nadine Poe? Aggravated Assault with a Deadly Weapon? Restraining Orders? Nadine Tran? Nadine Cousins? </span></h1>
+  <main class="page" id="top">
+    <nav class="topbar" aria-label="Main navigation">
+      <a class="brand" href="#top">
+        Different Guys <span>Publishing</span>
+      </a>
+
+      <a class="jump-link" href="#information-tabs">
+        Explore Sections
+      </a>
+    </nav>
+
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <span class="badge">Public information and commentary</span>
+
+        <h1 id="page-title">
+          Examine the
+          <span class="highlight">information, sources and questions.</span>
+        </h1>
 
         <p class="intro">
-  Public records, reports, links, related profiles,
-  and publicly available information associated with
-  Nadine M. Poe, Nadine Tran, Nadine Cousins,
-  and related aliases, Financial Transaction Card Fraud?
-      </p>
+          This page organizes publicly available links, source materials,
+          images, personal commentary, and questions that may require further
+          verification.
+        </p>
+
+        <p class="intro">
+          Readers should review original sources and distinguish documented
+          facts from allegations, opinions, speculation, satire, and personal
+          interpretation.
+        </p>
 
         <div class="cta-row">
-          <a class="button" href="#notes">View Notes</a>
-          <a class="button secondary" href="#links">View Links</a>
-          <a class="button secondary" href="#public-records">Public Records</a>
+          <a class="button" href="#information-tabs">
+            View All Sections
+          </a>
+
+          <button
+            class="button secondary"
+            type="button"
+            data-open-tab="records-panel"
+          >
+            Public Records
+          </button>
+
+          <button
+            class="button secondary"
+            type="button"
+            data-open-tab="business-panel"
+          >
+            Businesses or Scam?
+          </button>
         </div>
       </div>
 
-      <aside class="profile-card">
-        <div class="photo-upload">
-          <img src="me.jpg" alt="Profile Image" />
+      <!--
+        TOP HIGHLIGHT IMAGE
+
+        lnaddy.png was moved from Record 7 to this prominent hero position.
+        It is intentionally displayed as a large rectangular image similar
+        to the original Record 6 presentation.
+      -->
+      <aside class="featured-card" aria-label="Highlighted image">
+        <span class="featured-label">Highlighted Image</span>
+
+        <div class="featured-image-wrap">
+          <img
+            src="lnaddy.png"
+            alt="Highlighted reference image"
+            loading="eager"
+          />
         </div>
 
-        <h2>Nadine M. Poe</h2>
-        <p>Nadine M. Poe? Nadine Tran? Nadine Tran-Dang? Nadine Marie Cousins? Nadine Viet? Naddy Viet? Financial Transaction Card Fraud? Aggravated Assault with a Deadly Weapon? Restraining Orders?Cook County, IL Case # 2015CM41 – Aggravated Assault / Use of Deadly Weapon / Rifle 2/18/2015 – 3/2/2015
-</p>
+        <div class="featured-content">
+          <h2>Featured Reference</h2>
+
+          <p>
+            Replace this description with the verified date, original source,
+            relevant context, and explanation for why the image is included.
+          </p>
+        </div>
       </aside>
     </section>
 
-    <section class="section" id="notes">
-      <h2>Nadine M. Poe</h2>
+    <aside class="editorial-notice" role="note">
+      <strong>Editorial notice:</strong>
+      Do not describe someone as a criminal, scammer, abusive partner, or
+      dishonest person unless the statement is accurately supported by a
+      reliable source. Clearly label opinions, unresolved allegations, parody,
+      and disputed claims.
+    </aside>
 
-      <p class="note"></p>
+    <section
+      class="tabs-shell"
+      id="information-tabs"
+      aria-label="Information sections"
+    >
+      <div class="tab-list" role="tablist" aria-label="Page sections">
+        <button
+          class="tab-button"
+          id="overview-tab"
+          type="button"
+          role="tab"
+          aria-selected="true"
+          aria-controls="overview-panel"
+          data-tab-target="overview-panel"
+        >
+          Overview
+        </button>
 
-      <div class="chips">
-        <span class="chip">Nadine M. Poe?</span>
-        <span class="chip">Nadine Tran?</span>
-        <span class="chip">Nadine Tran-Dang?</span>
-        <span class="chip">Nadine Marie Cousins?</span>
-        <span class="chip">Nadine Viet?</span>
-        <span class="chip">Naddy Viet?</span>
-        <span class="chip">From Washington?</span>
-        <span class="chip">Financial Transaction Card Fraud?</span>
-        <span class="chip">Aggravated Assault with a Deadly Weapon?</span>
-        <span class="chip">Restraining Orders?</span>
+        <button
+          class="tab-button"
+          id="links-tab"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-controls="links-panel"
+          data-tab-target="links-panel"
+          tabindex="-1"
+        >
+          Public Links
+        </button>
+
+        <button
+          class="tab-button"
+          id="records-tab"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-controls="records-panel"
+          data-tab-target="records-panel"
+          tabindex="-1"
+        >
+          Public Records
+        </button>
+
+        <button
+          class="tab-button"
+          id="relationships-tab"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-controls="relationships-panel"
+          data-tab-target="relationships-panel"
+          tabindex="-1"
+        >
+          Multiple Relationships
+        </button>
+
+        <button
+          class="tab-button"
+          id="business-tab"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-controls="business-panel"
+          data-tab-target="business-panel"
+          tabindex="-1"
+        >
+          Businesses or Scam?
+        </button>
+
+        <button
+          class="tab-button"
+          id="christian-tab"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-controls="christian-panel"
+          data-tab-target="christian-panel"
+          tabindex="-1"
+        >
+          Good Christian?
+        </button>
       </div>
-    </section>
 
-    <section class="section" id="links">
-      <h2>Public Links</h2>
+      <!-- OVERVIEW TAB -->
+      <div
+        class="tab-panel active"
+        id="overview-panel"
+        role="tabpanel"
+        aria-labelledby="overview-tab"
+        tabindex="0"
+      >
+        <h2 class="section-heading">Overview</h2>
 
-      <p class="note">What is this?</p>
+        <p class="section-description">
+          Use this section to identify the subject of the page, explain the
+          purpose of the publication, and summarize the categories of material
+          presented.
+        </p>
 
-      <div class="link-grid">
-        <div class="link-card">
-          <strong>Facebook Directory</strong>
-          <a href="https://www.facebook.com/NaddyViet/directory_links?" target="_blank" rel="noopener noreferrer">Open Facebook Directory</a>
+        <p class="note">
+          Replace question marks and uncertain identity claims with sourced,
+          accurate statements whenever possible.
+        </p>
+
+        <div class="chips">
+          <span class="chip">Identity information</span>
+          <span class="chip">Public profiles</span>
+          <span class="chip">Public records</span>
+          <span class="chip">Business records</span>
+          <span class="chip">Relationships</span>
+          <span class="chip">Public statements</span>
+          <span class="chip">Editorial commentary</span>
+          <span class="chip">Source verification</span>
         </div>
 
-        <div class="link-card">
-          <strong>Alpharetta Wine Not</strong>
-          <a href="https://www.alpharettawinenot.com/subscriptions/nadine-cousins" target="_blank" rel="noopener noreferrer">Open Alpharetta Wine Not Page</a>
-        </div>
+        <div class="card-grid">
+          <article class="content-card">
+            <h3>Purpose of This Page</h3>
 
-        <div class="link-card">
-          <strong>Nadine's Academy</strong>
-          <a href="https://nadinemcousins.wixsite.com/nadinesacademy" target="_blank" rel="noopener noreferrer">Open Nadine's Academy</a>
-        </div>
+            <p>
+              Add a clear explanation of why the page exists and what readers
+              should expect to find.
+            </p>
+          </article>
 
-        <div class="link-card">
-          <strong>Georgia Company Registry</strong>
-          <a href="https://www.georgiacompanyregistry.com/companies/viet-empire-llc/" target="_blank" rel="noopener noreferrer">View Georgia Company Registry Listing</a>
-        </div>
+          <article class="content-card">
+            <h3>Verification Standard</h3>
 
-        <div class="link-card">
-          <strong>Secret Spa ATL</strong>
-          <a href="https://secretspa-atl.square.site/" target="_blank" rel="noopener noreferrer">Visit Secret Spa ATL</a>
-        </div>
+            <p>
+              Explain how sources are reviewed, how corrections can be
+              submitted, and how disputed claims are identified.
+            </p>
+          </article>
 
-        <div class="link-card">
-          <strong>Instagram Reels</strong>
-          <a href="https://www.instagram.com/nadiine_cousinss/reels/" target="_blank" rel="noopener noreferrer">Open Instagram Reels</a>
-        </div>
+          <article class="content-card">
+            <h3>Timeline</h3>
 
-        <div class="link-card">
-          <strong>TikTok</strong>
-          <a href="https://www.tiktok.com/@lyfewithnaddy" target="_blank" rel="noopener noreferrer">Open TikTok Profile</a>
-        </div>
+            <p>
+              Add a chronological timeline with dates, source links, and a
+              neutral description of each documented event.
+            </p>
+          </article>
 
-        <div class="link-card">
-          <strong>Recently Booked</strong>
-          <a href="https://recentlybooked.com/ga/fulton/nadine-cousins~1367_p01153243" target="_blank" rel="noopener noreferrer">View Recently Booked Record</a>
-        </div>
+          <article class="content-card">
+            <h3>Corrections and Responses</h3>
 
-        <div class="link-card">
-          <strong>Yahoo Lifestyle Article</strong>
-          <a href="https://au.lifestyle.yahoo.com/woman-27-reveals-shes-attracted-55-year-old-boyfriends-wrinkles-020713908.html" target="_blank" rel="noopener noreferrer">Read Yahoo Lifestyle Article</a>
-        </div>
-
-        <div class="link-card">
-          <strong>Judy Records</strong>
-          <a href="https://www.judyrecords.com/record/lpiol946c732" target="_blank" rel="noopener noreferrer">View Judy Records Entry</a>
+            <p>
+              Provide a method for requesting a correction or submitting a
+              response to material published on the page.
+            </p>
+          </article>
         </div>
       </div>
-        </section>
-    
-    <section class="section" id="public-records">
-      <h2>Public Records</h2>
 
-      <p class="note"> Nadine M. Poe Images</p>
+      <!-- PUBLIC LINKS TAB -->
+      <div
+        class="tab-panel"
+        id="links-panel"
+        role="tabpanel"
+        aria-labelledby="links-tab"
+        tabindex="0"
+        hidden
+      >
+        <h2 class="section-heading">Public Links</h2>
 
-      <div class="link-grid">
-        <div class="link-card">
-          <strong> Record 1</strong>
-          <img src="nadinepoe3.png" alt="Public Record 1" style="width:100%; border-radius:16px; margin-top:10px;">
+        <p class="section-description">
+          Links below lead to external websites. The existence of a link does
+          not independently verify every statement contained on that website.
+        </p>
+
+        <div class="link-grid">
+          <article class="link-card">
+            <strong>Facebook Directory</strong>
+
+            <a
+              href="https://www.facebook.com/NaddyViet/directory_links?"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+            >
+              Open Facebook Directory
+            </a>
+          </article>
+
+          <article class="link-card">
+            <strong>Alpharetta Wine Not</strong>
+
+            <a
+              href="https://www.alpharettawinenot.com/subscriptions/nadine-cousins"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+            >
+              Open Alpharetta Wine Not Page
+            </a>
+          </article>
+
+          <article class="link-card">
+            <strong>Nadine's Academy</strong>
+
+            <a
+              href="https://nadinemcousins.wixsite.com/nadinesacademy"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+            >
+              Open Nadine's Academy
+            </a>
+          </article>
+
+          <article class="link-card">
+            <strong>Georgia Company Registry</strong>
+
+            <a
+              href="https://www.georgiacompanyregistry.com/companies/viet-empire-llc/"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+            >
+              View Georgia Company Registry Listing
+            </a>
+          </article>
+
+          <article class="link-card">
+            <strong>Secret Spa ATL</strong>
+
+            <a
+              href="https://secretspa-atl.square.site/"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+            >
+              Visit Secret Spa ATL
+            </a>
+          </article>
+
+          <article class="link-card">
+            <strong>Instagram Reels</strong>
+
+            <a
+              href="https://www.instagram.com/nadiine_cousinss/reels/"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+            >
+              Open Instagram Reels
+            </a>
+          </article>
+
+          <article class="link-card">
+            <strong>TikTok</strong>
+
+            <a
+              href="https://www.tiktok.com/@lyfewithnaddy"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+            >
+              Open TikTok Profile
+            </a>
+          </article>
+
+          <article class="link-card">
+            <strong>Recently Booked</strong>
+
+            <a
+              href="https://recentlybooked.com/ga/fulton/nadine-cousins~1367_p01153243"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+            >
+              View External Record
+            </a>
+          </article>
+
+          <article class="link-card">
+            <strong>Yahoo Lifestyle Article</strong>
+
+            <a
+              href="https://au.lifestyle.yahoo.com/woman-27-reveals-shes-attracted-55-year-old-boyfriends-wrinkles-020713908.html"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+            >
+              Read Yahoo Lifestyle Article
+            </a>
+          </article>
+
+          <article class="link-card">
+            <strong>Judy Records</strong>
+
+            <a
+              href="https://www.judyrecords.com/record/lpiol946c732"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+            >
+              View Judy Records Entry
+            </a>
+          </article>
+        </div>
+      </div>
+
+      <!-- PUBLIC RECORDS TAB -->
+      <div
+        class="tab-panel"
+        id="records-panel"
+        role="tabpanel"
+        aria-labelledby="records-tab"
+        tabindex="0"
+        hidden
+      >
+        <h2 class="section-heading">Public Records</h2>
+
+        <p class="section-description">
+          Add the originating agency, record number, filing date, disposition,
+          and direct source for each record. A charge or filing should not be
+          described as a conviction unless the final disposition supports it.
+        </p>
+
+        <div class="image-grid">
+          <article class="image-card">
+            <div class="image-frame">
+              <img
+                src="nadinepoe3.png"
+                alt="Public record image 1"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="image-details">
+              <h3>Record 1</h3>
+
+              <p>
+                Add the source, date, record identifier, and neutral context.
+              </p>
+            </div>
+          </article>
+
+          <article class="image-card">
+            <div class="image-frame">
+              <img
+                src="Nadinempoe.png"
+                alt="Public record image 2"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="image-details">
+              <h3>Record 2</h3>
+
+              <p>
+                Add the source, date, record identifier, and neutral context.
+              </p>
+            </div>
+          </article>
+
+          <article class="image-card">
+            <div class="image-frame">
+              <img
+                src="mygun.jpg"
+                alt="Public record image 3"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="image-details">
+              <h3>Record 3</h3>
+
+              <p>
+                Add the source, date, ownership context, and reason for
+                inclusion.
+              </p>
+            </div>
+          </article>
+
+          <article class="image-card">
+            <div class="image-frame">
+              <img
+                src="collectiongun.png"
+                alt="Public record image 4"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="image-details">
+              <h3>Record 4</h3>
+
+              <p>
+                Add the source, date, ownership context, and reason for
+                inclusion.
+              </p>
+            </div>
+          </article>
+
+          <article class="image-card">
+            <div class="image-frame">
+              <img
+                src="vacation.jpg"
+                alt="Public record image 5"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="image-details">
+              <h3>Record 5</h3>
+
+              <p>
+                Add the original source, date, location, and relevant context.
+              </p>
+            </div>
+          </article>
+
+          <article class="image-card">
+            <div class="image-frame">
+              <img
+                src="firing.jpg"
+                alt="Public record image 6"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="image-details">
+              <h3>Record 6</h3>
+
+              <p>
+                Add the original source, date, location, and relevant context.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- MULTIPLE RELATIONSHIPS TAB -->
+      <div
+        class="tab-panel"
+        id="relationships-panel"
+        role="tabpanel"
+        aria-labelledby="relationships-tab"
+        tabindex="0"
+        hidden
+      >
+        <h2 class="section-heading">Multiple Relationships</h2>
+
+        <p class="section-description">
+          This section can organize publicly stated relationship timelines,
+          interviews, posts, and other voluntarily published information.
+          Avoid publishing intimate details, private messages, addresses, phone
+          numbers, or other sensitive personal information.
+        </p>
+
+        <div class="question-banner">
+          <h3>Questions to Document Carefully</h3>
+
+          <p>
+            What was publicly stated, when was it stated, who made the
+            statement, and is there an original source? Do not infer deception
+            or misconduct solely because different relationships occurred at
+            different times.
+          </p>
         </div>
 
-        <div class="link-card">
-          <strong>Record 2</strong>
-          <img src="Nadinempoe.png" alt="Public Record 2" style="width:100%; border-radius:16px; margin-top:10px;">
-          </div>
+        <div class="card-grid">
+          <article class="content-card">
+            <h3>Relationship Timeline</h3>
 
-  <div class="link-card">
-    <strong>Record 3</strong>
-    <img src="mygun.jpg" alt="Public Record 3"
-         style="width:100%; border-radius:16px; margin-top:10px;">
-  </div>
+            <p>
+              Add confirmed dates and public statements in chronological order.
+            </p>
+          </article>
 
-  <div class="link-card">
-    <strong>Record 4</strong>
-    <img src="collectiongun.png" alt="Public Record 4"
-         style="width:100%; border-radius:16px; margin-top:10px;">
-  </div>
+          <article class="content-card">
+            <h3>Original Sources</h3>
 
-  <div class="link-card">
-    <strong>Record 5</strong>
-    <img src="vacation.jpg" alt="Public Record 5"
-         style="width:100%; border-radius:16px; margin-top:10px;">
-  </div>
+            <p>
+              Link directly to interviews, public posts, or published articles.
+            </p>
+          </article>
 
-  <div class="link-card">
-    <strong>Record 6</strong>
-    <img src="firing.jpg" alt="Public Record 6"
-         style="width:100%; border-radius:16px; margin-top:10px;">
-  </div> 
-        
-  <div class="link-card">
-    <strong>Record 7</strong>
-    <img src="lnaddy.png" alt="Public Record 7"
-         style="width:100%; border-radius:16px; margin-top:10px;">
-          
+          <article class="content-card">
+            <h3>Conflicting Accounts</h3>
+
+            <p>
+              Present each documented account fairly and identify unresolved
+              differences.
+            </p>
+          </article>
+
+          <article class="content-card">
+            <h3>Context and Corrections</h3>
+
+            <p>
+              Add later clarifications, deletions, corrections, or responses.
+            </p>
+          </article>
+        </div>
+
+        <h3 class="subheading">Relationship Image Sections</h3>
+
+        <div class="image-grid">
+          <article class="image-card">
+            <div class="image-placeholder">
+              <span>
+                <strong>Image Section 1</strong>
+                Replace this block with an image and add its original source.
+              </span>
+            </div>
+
+            <div class="image-details">
+              <h3>Relationship Timeline Image</h3>
+
+              <p>
+                Suggested file name:
+                <code>relationship-1.jpg</code>
+              </p>
+            </div>
+          </article>
+
+          <article class="image-card">
+            <div class="image-placeholder">
+              <span>
+                <strong>Image Section 2</strong>
+                Add a screenshot only when it is public and necessary.
+              </span>
+            </div>
+
+            <div class="image-details">
+              <h3>Public Statement Image</h3>
+
+              <p>
+                Suggested file name:
+                <code>relationship-2.jpg</code>
+              </p>
+            </div>
+          </article>
+
+          <article class="image-card">
+            <div class="image-placeholder">
+              <span>
+                <strong>Image Section 3</strong>
+                Include the date, platform, and surrounding context.
+              </span>
+            </div>
+
+            <div class="image-details">
+              <h3>Published Article Image</h3>
+
+              <p>
+                Suggested file name:
+                <code>relationship-3.jpg</code>
+              </p>
+            </div>
+          </article>
+
+          <article class="image-card">
+            <div class="image-placeholder">
+              <span>
+                <strong>Image Section 4</strong>
+                Add a neutral caption that does not speculate.
+              </span>
+            </div>
+
+            <div class="image-details">
+              <h3>Additional Context Image</h3>
+
+              <p>
+                Suggested file name:
+                <code>relationship-4.jpg</code>
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- BUSINESSES OR SCAM TAB -->
+      <div
+        class="tab-panel"
+        id="business-panel"
+        role="tabpanel"
+        aria-labelledby="business-tab"
+        tabindex="0"
+        hidden
+      >
+        <h2 class="section-heading">Businesses or Scam?</h2>
+
+        <p class="section-description">
+          This title is presented as a question. Do not state that a person or
+          business is operating a scam without reliable evidence such as a
+          final regulatory finding, court judgment, verified admission, or
+          well-supported investigative reporting.
+        </p>
+
+        <div class="question-banner">
+          <h3>Business Verification Checklist</h3>
+
+          <p>
+            Check the official registration status, current ownership,
+            licensing requirements, physical location, written policies,
+            documented customer complaints, responses from the business, and
+            the final outcome of any official proceeding.
+          </p>
+        </div>
+
+        <div class="card-grid">
+          <article class="content-card">
+            <h3>Company Registration</h3>
+
+            <ul>
+              <li>Official company name</li>
+              <li>Registration number</li>
+              <li>Formation date</li>
+              <li>Current registration status</li>
+            </ul>
+          </article>
+
+          <article class="content-card">
+            <h3>Licensing</h3>
+
+            <ul>
+              <li>Required professional licenses</li>
+              <li>License holder</li>
+              <li>Expiration date</li>
+              <li>Official verification link</li>
+            </ul>
+          </article>
+
+          <article class="content-card">
+            <h3>Customer Complaints</h3>
+
+            <ul>
+              <li>Complaint date</li>
+              <li>Transaction details</li>
+              <li>Documents or receipts</li>
+              <li>Resolution or refund status</li>
+            </ul>
+          </article>
+
+          <article class="content-card">
+            <h3>Business Response</h3>
+
+            <ul>
+              <li>Published response</li>
+              <li>Correction or explanation</li>
+              <li>Refund or remediation</li>
+              <li>Disputed facts</li>
+            </ul>
+          </article>
+        </div>
+
+        <h3 class="subheading">Business Evidence Image Sections</h3>
+
+        <div class="image-grid">
+          <article class="image-card">
+            <div class="image-placeholder">
+              <span>
+                <strong>Image Section 1</strong>
+                Add an official business registration screenshot.
+              </span>
+            </div>
+
+            <div class="image-details">
+              <h3>Registration Record</h3>
+
+              <p>
+                Suggested file name:
+                <code>business-1.jpg</code>
+              </p>
+            </div>
+          </article>
+
+          <article class="image-card">
+            <div class="image-placeholder">
+              <span>
+                <strong>Image Section 2</strong>
+                Add a license record or official verification page.
+              </span>
+            </div>
+
+            <div class="image-details">
+              <h3>License Record</h3>
+
+              <p>
+                Suggested file name:
+                <code>business-2.jpg</code>
+              </p>
+            </div>
+          </article>
+
+          <article class="image-card">
+            <div class="image-placeholder">
+              <span>
+                <strong>Image Section 3</strong>
+                Add a redacted receipt, invoice, or transaction record.
+              </span>
+            </div>
+
+            <div class="image-details">
+              <h3>Transaction Documentation</h3>
+
+              <p>
+                Suggested file name:
+                <code>business-3.jpg</code>
+              </p>
+            </div>
+          </article>
+
+          <article class="image-card">
+            <div class="image-placeholder">
+              <span>
+                <strong>Image Section 4</strong>
+                Add an official complaint outcome or business response.
+              </span>
+            </div>
+
+            <div class="image-details">
+              <h3>Complaint or Response</h3>
+
+              <p>
+                Suggested file name:
+                <code>business-4.jpg</code>
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- GOOD CHRISTIAN TAB -->
+      <div
+        class="tab-panel"
+        id="christian-panel"
+        role="tabpanel"
+        aria-labelledby="christian-tab"
+        tabindex="0"
+        hidden
+      >
+        <h2 class="section-heading">Good Christian?</h2>
+
+        <p class="section-description">
+          Religious sincerity and personal morality are subjective questions.
+          This section should distinguish the person's own public religious
+          statements from the publisher's opinion and should not invite
+          harassment or discrimination.
+        </p>
+
+        <div class="question-banner">
+          <h3>Separate Statements From Judgment</h3>
+
+          <p>
+            Quote only brief, necessary portions of public statements, link to
+            the original source, explain the context, and label personal moral
+            conclusions as opinion rather than fact.
+          </p>
+        </div>
+
+        <div class="card-grid">
+          <article class="content-card">
+            <h3>Public Faith Statements</h3>
+
+            <p>
+              Document relevant statements made publicly by the person, with
+              dates and original sources.
+            </p>
+          </article>
+
+          <article class="content-card">
+            <h3>Public Conduct</h3>
+
+            <p>
+              Describe only verifiable public conduct and avoid speculation
+              about private beliefs or intentions.
+            </p>
+          </article>
+
+          <article class="content-card">
+            <h3>Publisher Commentary</h3>
+
+            <p>
+              Place subjective criticism here and clearly mark it as opinion.
+            </p>
+          </article>
+
+          <article class="content-card">
+            <h3>Response or Clarification</h3>
+
+            <p>
+              Include any available response, explanation, correction, or
+              additional context.
+            </p>
+          </article>
+        </div>
+
+        <h3 class="subheading">Faith and Commentary Image Sections</h3>
+
+        <div class="image-grid">
+          <article class="image-card">
+            <div class="image-placeholder">
+              <span>
+                <strong>Image Section 1</strong>
+                Add a public statement with its date and source.
+              </span>
+            </div>
+
+            <div class="image-details">
+              <h3>Public Statement</h3>
+
+              <p>
+                Suggested file name:
+                <code>faith-1.jpg</code>
+              </p>
+            </div>
+          </article>
+
+          <article class="image-card">
+            <div class="image-placeholder">
+              <span>
+                <strong>Image Section 2</strong>
+                Add published context without revealing private information.
+              </span>
+            </div>
+
+            <div class="image-details">
+              <h3>Published Context</h3>
+
+              <p>
+                Suggested file name:
+                <code>faith-2.jpg</code>
+              </p>
+            </div>
+          </article>
+
+          <article class="image-card">
+            <div class="image-placeholder">
+              <span>
+                <strong>Image Section 3</strong>
+                Add a relevant public action or event.
+              </span>
+            </div>
+
+            <div class="image-details">
+              <h3>Public Event</h3>
+
+              <p>
+                Suggested file name:
+                <code>faith-3.jpg</code>
+              </p>
+            </div>
+          </article>
+
+          <article class="image-card">
+            <div class="image-placeholder">
+              <span>
+                <strong>Image Section 4</strong>
+                Add a response, clarification, or additional perspective.
+              </span>
+            </div>
+
+            <div class="image-details">
+              <h3>Response or Additional Context</h3>
+
+              <p>
+                Suggested file name:
+                <code>faith-4.jpg</code>
+              </p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
     <footer>
-      Different Guys Publishing
+      <p>Different Guys Publishing</p>
+
+      <p>
+        Public information, editorial commentary, and source-document archive.
+      </p>
     </footer>
   </main>
+
+  <script>
+    "use strict";
+
+    const tabButtons = Array.from(
+      document.querySelectorAll("[data-tab-target]")
+    );
+
+    const tabPanels = Array.from(
+      document.querySelectorAll(".tab-panel")
+    );
+
+    const directTabButtons = Array.from(
+      document.querySelectorAll("[data-open-tab]")
+    );
+
+    /**
+     * Opens a tab panel and updates all ARIA attributes.
+     *
+     * @param {string} panelId
+     * @param {boolean} shouldFocus
+     */
+    function openTab(panelId, shouldFocus = false) {
+      const selectedButton = tabButtons.find(
+        (button) => button.dataset.tabTarget === panelId
+      );
+
+      const selectedPanel = document.getElementById(panelId);
+
+      if (!selectedButton || !selectedPanel) {
+        console.warn(`Unable to find tab panel: ${panelId}`);
+        return;
+      }
+
+      tabButtons.forEach((button) => {
+        const isSelected = button === selectedButton;
+
+        button.setAttribute(
+          "aria-selected",
+          isSelected ? "true" : "false"
+        );
+
+        button.tabIndex = isSelected ? 0 : -1;
+      });
+
+      tabPanels.forEach((panel) => {
+        const isSelected = panel.id === panelId;
+
+        panel.classList.toggle("active", isSelected);
+        panel.hidden = !isSelected;
+      });
+
+      if (shouldFocus) {
+        selectedButton.focus();
+      }
+
+      try {
+        window.history.replaceState(
+          null,
+          "",
+          `#${panelId}`
+        );
+      } catch (error) {
+        console.warn("Unable to update URL hash.", error);
+      }
+    }
+
+    tabButtons.forEach((button, buttonIndex) => {
+      button.addEventListener("click", () => {
+        openTab(button.dataset.tabTarget);
+      });
+
+      button.addEventListener("keydown", (event) => {
+        const supportedKeys = [
+          "ArrowLeft",
+          "ArrowRight",
+          "Home",
+          "End"
+        ];
+
+        if (!supportedKeys.includes(event.key)) {
+          return;
+        }
+
+        event.preventDefault();
+
+        let nextIndex = buttonIndex;
+
+        if (event.key === "ArrowRight") {
+          nextIndex = (buttonIndex + 1) % tabButtons.length;
+        }
+
+        if (event.key === "ArrowLeft") {
+          nextIndex =
+            (buttonIndex - 1 + tabButtons.length) %
+            tabButtons.length;
+        }
+
+        if (event.key === "Home") {
+          nextIndex = 0;
+        }
+
+        if (event.key === "End") {
+          nextIndex = tabButtons.length - 1;
+        }
+
+        const nextButton = tabButtons[nextIndex];
+
+        openTab(nextButton.dataset.tabTarget, true);
+      });
+    });
+
+    directTabButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const panelId = button.dataset.openTab;
+
+        openTab(panelId);
+
+        document
+          .getElementById("information-tabs")
+          ?.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+      });
+    });
+
+    /**
+     * Opens the tab referenced by the URL hash, when valid.
+     */
+    function openTabFromHash() {
+      const panelId = window.location.hash.replace("#", "");
+
+      const matchingPanel = tabPanels.find(
+        (panel) => panel.id === panelId
+      );
+
+      if (matchingPanel) {
+        openTab(panelId);
+      }
+    }
+
+    window.addEventListener("hashchange", openTabFromHash);
+
+    openTabFromHash();
+  </script>
 </body>
 </html>
