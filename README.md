@@ -1,3 +1,18 @@
-Nadine M. Poe? Nadine Tran? Nadine Tran-Dang? Nadine Marie Cousins? Nadine Viet? Naddy Viet? Financial Transaction Card Fraud? Aggravated Assault with a Deadly Weapon? Restraining Orders?
-Secret Link: https://nadinempoenadinecousins.github.io/nadinempoe/
-"Nadine M. Poe"
+# Hi, I'm Nadine Poe
+
+Founder of The Secret Spa- Nova
+
+## Services
+
+- Luxury Nails
+- Facials
+- Lux Lashes
+- Laser Lipo (Non-Invasive)
+- OF
+- Multiple Relationships
+
+Website:
+https://nadinepoe.com
+
+Facebook:
+https://www.facebook.com/NaddyViet/
