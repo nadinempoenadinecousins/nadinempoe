@@ -554,11 +554,15 @@
     .image-card {
       display: flex;
       flex-direction: column;
+      min-width: 0;
+      height: 100%;
     }
 
     .image-frame {
       position: relative;
-      min-height: 300px;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      min-height: 0;
       overflow: hidden;
       background:
         linear-gradient(
@@ -572,8 +576,9 @@
       display: block;
       width: 100%;
       height: 100%;
-      min-height: 300px;
+      min-height: 0;
       object-fit: cover;
+      object-position: center;
       transition: transform 280ms ease;
     }
 
@@ -613,6 +618,9 @@
     }
 
     .image-details {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
       padding: 18px;
     }
 
@@ -1471,158 +1479,92 @@ Nadine M. Poe? Nadine Tran? Nadine Tran-Dang? Nadine Marie Cousins? Nadine Viet?
 
         <div class="image-grid">
           <article class="image-card">
-<div class="image-frame">
-  <img
-    src="Picture7.png"
-    alt="Relationship  image"
-    loading="lazy"
-  />
-</div>
+            <div class="image-frame">
+              <img src="Picture7.png" alt="Business reference image 1" loading="lazy" />
+            </div>
             <div class="image-details">
-              <h3> Fraudster? </h3>
-
-              <p>
-   
-                <code> </code>
-              </p>
+              <h3>Fraudster?</h3>
+              <p><code></code></p>
             </div>
           </article>
 
           <article class="image-card">
-<div class="image-frame">
-  <img
-    src="Picture3.png"
-    alt="Relationship  image"
-    loading="lazy"
-  />
-</div>
-
+            <div class="image-frame">
+              <img src="Picture3.png" alt="Business reference image 2" loading="lazy" />
+            </div>
             <div class="image-details">
               <h3></h3>
-
-              <p>
-               
-                <code></code>
-              </p>
+              <p><code></code></p>
             </div>
           </article>
 
           <article class="image-card">
-<div class="image-frame">
-  <img
-    src="Picture5.png"
-    alt="Relationship timeline image"
-    loading="lazy"
-  />
-</div>
-
-            <div class="image-details">
-              <h3> </h3>
-
-              <p>
-                
-                <code></code>
-              </p>
+            <div class="image-frame">
+              <img src="Picture5.png" alt="Business reference image 3" loading="lazy" />
             </div>
-          </article>
-
-          <article class="image-card">
-<div class="image-frame">
-  <img
-    src="Picture6.png"
-    alt="Relationship timeline image"
-    loading="lazy"
-  />
-</div>
-<article class="image-card">
-  <div class="image-frame">
-    <img
-      src="Picture19.png"
-      alt="Business or scam investigation image"
-      loading="lazy"
-    />
-  </div>
-
-  <div class="image-details">
-    <h3></h3>
-
-    <p>
-      <code></code>
-    </p>
-  </div>
-</article>
-
-<article class="image-card">
-  <div class="image-frame">
-    <img
-      src="Picture22.png"
-      alt="Business or scam investigation image"
-      loading="lazy"
-    />
-  </div>
-
-  <div class="image-details">
-    <h3></h3>
-
-    <p>
-      <code></code>
-    </p>
-  </div>
-</article>
-
-<article class="image-card">
-  <div class="image-frame">
-    <img
-      src="Picture25.png"
-      alt="Business or scam investigation image"
-      loading="lazy"
-    />
-  </div>
-
-  <div class="image-details">
-    <h3></h3>
-
-    <p>
-      <code></code>
-    </p>
-  </div>
-</article>
-
-<article class="image-card">
-  <div class="image-frame">
-    <img
-      src="Picture24.png"
-      alt="Business or scam investigation image"
-      loading="lazy"
-    />
-  </div>
-
-  <div class="image-details">
-    <h3></h3>
-
-    <p>
-      <code></code>
-    </p>
-  </div>
-</article>
-
-<article class="image-card">
-  <div class="image-frame">
-    <img
-      src="Picture26.png"
-      alt="Business or scam investigation image"
-      loading="lazy"
-    />
-  </div>
-
-            
             <div class="image-details">
               <h3></h3>
+              <p><code></code></p>
+            </div>
+          </article>
 
-              <p>
-               
-                <code></code>
-              </p>
+          <article class="image-card">
+            <div class="image-frame">
+              <img src="Picture6.png" alt="Business reference image 4" loading="lazy" />
+            </div>
+            <div class="image-details">
+              <h3></h3>
+              <p><code></code></p>
+            </div>
+          </article>
+
+          <article class="image-card">
+            <div class="image-frame">
+              <img src="Picture19.png" alt="Business reference image 5" loading="lazy" />
+            </div>
+            <div class="image-details">
+              <h3></h3>
+              <p><code></code></p>
+            </div>
+          </article>
+
+          <article class="image-card">
+            <div class="image-frame">
+              <img src="Picture22.png" alt="Business reference image 6" loading="lazy" />
+            </div>
+            <div class="image-details">
+              <h3></h3>
+              <p><code></code></p>
+            </div>
+          </article>
+
+          <article class="image-card">
+            <div class="image-frame">
+              <img src="Picture25.png" alt="Business reference image 7" loading="lazy" />
+            </div>
+            <div class="image-details">
+              <h3></h3>
+              <p><code></code></p>
+            </div>
+          </article>
+
+          <article class="image-card">
+            <div class="image-frame">
+              <img src="Picture24.png" alt="Business reference image 8" loading="lazy" />
+            </div>
+            <div class="image-details">
+              <h3></h3>
+              <p><code></code></p>
+            </div>
+          </article>
+
+          <article class="image-card">
+            <div class="image-frame">
+              <img src="Picture26.png" alt="Business reference image 9" loading="lazy" />
+            </div>
+            <div class="image-details">
+              <h3></h3>
+              <p><code></code></p>
             </div>
           </article>
         </div>
