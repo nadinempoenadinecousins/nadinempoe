@@ -2095,7 +2095,10 @@ Nadine M. Poe? Nadine Tran? Nadine Tran-Dang? Nadine Marie Cousins? Nadine Viet?
 
         <h3 class="subheading">Business or Scam? </h3>
 
-        <div class="image-grid">
+        <div class="relationship-carousel business-carousel" aria-label="Businesses or Scam image carousel">
+          <button class="relationship-carousel-control relationship-carousel-prev" type="button" aria-label="Show previous business image">&#10094;</button>
+
+          <div class="relationship-carousel-stage">
           <article class="image-card">
             <div class="image-frame">
               <img src="Picture7.png" alt="Business reference image 1" loading="lazy" />
@@ -2335,6 +2338,10 @@ Nadine M. Poe? Nadine Tran? Nadine Tran-Dang? Nadine Marie Cousins? Nadine Viet?
               <p><code></code></p>
             </div>
           </article>
+          </div>
+
+          <button class="relationship-carousel-control relationship-carousel-next" type="button" aria-label="Show next business image">&#10095;</button>
+          <div class="relationship-carousel-counter" aria-live="polite"></div>
         </div>
       </div>
 
@@ -2810,9 +2817,11 @@ Nadine M. Poe? Nadine Tran? Nadine Tran-Dang? Nadine Marie Cousins? Nadine Viet?
     openTabFromHash();
 
 
-    const relationshipCarousel = document.querySelector(".relationship-carousel");
+    const relationshipCarousels = Array.from(
+      document.querySelectorAll(".relationship-carousel")
+    );
 
-    if (relationshipCarousel) {
+    relationshipCarousels.forEach((relationshipCarousel) => {
       const stage = relationshipCarousel.querySelector(".relationship-carousel-stage");
       const slides = Array.from(stage.querySelectorAll(".image-card"));
       const previousButton = relationshipCarousel.querySelector(".relationship-carousel-prev");
@@ -2893,7 +2902,7 @@ Nadine M. Poe? Nadine Tran? Nadine Tran-Dang? Nadine Marie Cousins? Nadine Viet?
 
       relationshipCarousel.tabIndex = 0;
       updateRelationshipCarousel();
-    }
+    });
 
     const imageLightbox = document.getElementById("image-lightbox");
     const imageLightboxImage = document.getElementById("image-lightbox-image");
