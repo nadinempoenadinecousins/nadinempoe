@@ -450,14 +450,39 @@
 
     .hero-copy h1 {
       max-width: 820px;
-      font-size: clamp(2.35rem, 4.6vw, 5rem);
-      line-height: 1.01;
+      font-size: clamp(1.78rem, 3.35vw, 3.55rem);
+      line-height: 1.08;
+      letter-spacing: -0.035em;
       text-wrap: balance;
     }
 
     .hero-copy .intro {
       max-width: 820px;
+      font-size: clamp(0.94rem, 1.25vw, 1.02rem);
+      line-height: 1.65;
       text-wrap: pretty;
+    }
+
+    .typing-line {
+      visibility: visible;
+    }
+
+    .typing-cursor::after {
+      display: inline-block;
+      width: 0.08em;
+      height: 0.95em;
+      margin-left: 0.1em;
+      vertical-align: -0.08em;
+      content: "";
+      background: var(--pink-light);
+      border-radius: 999px;
+      box-shadow: 0 0 12px rgba(255, 79, 184, 0.75);
+      animation: typingCursorBlink 760ms steps(1, end) infinite;
+    }
+
+    @keyframes typingCursorBlink {
+      0%, 48% { opacity: 1; }
+      49%, 100% { opacity: 0; }
     }
 
     .hero-tabs-wrap {
@@ -1576,20 +1601,13 @@
       <div class="hero-copy">
         <span class="badge">Public information Nadine Poe</span>
 
-        <h1 id="page-title">
-          Hi! Welcome! Card Fraud? Who is Nadine Poe? Aggravated Assault with a Deadly Weapon? Restraining Orders? Nadine Tran? Nadine Cousins? 
-          <span class="highlight">information, sources and questions.</span>
+        <h1 id="page-title" aria-label="Hi! Welcome! Card Fraud? Who is Nadine Poe? Aggravated Assault with a Deadly Weapon? Restraining Orders? Nadine Tran? Nadine Cousins? information, sources and questions.">
+          <span class="typing-line" data-typewriter="Hi! Welcome! Card Fraud? Who is Nadine Poe? Aggravated Assault with a Deadly Weapon? Restraining Orders? Nadine Tran? Nadine Cousins? "></span><span class="highlight typing-line" data-typewriter="information, sources and questions."></span>
         </h1>
 
-        <p class="intro">
-Nadine M. Poe? Nadine Tran? Nadine Tran-Dang? Nadine Marie Cousins? Nadine Viet? Naddy Viet? Financial Transaction Card Fraud? Aggravated Assault with a Deadly Weapon? Restraining Orders?Cook County, IL Case # 2015CM41 – Aggravated Assault / Use of Deadly Weapon / Rifle 2/18/2015 – 3/2/2015 
-        </p>
+        <p class="intro typing-line" data-typewriter="Nadine M. Poe? Nadine Tran? Nadine Tran-Dang? Nadine Marie Cousins? Nadine Viet? Naddy Viet? Financial Transaction Card Fraud? Aggravated Assault with a Deadly Weapon? Restraining Orders?Cook County, IL Case # 2015CM41 – Aggravated Assault / Use of Deadly Weapon / Rifle 2/18/2015 – 3/2/2015"></p>
 
-        <p class="intro">
-          Readers should review original sources and distinguish documented
-          facts from allegations, opinions, speculation, satire, and personal
-          interpretation.
-        </p>
+        <p class="intro typing-line" data-typewriter="Readers should review original sources and distinguish documented facts from allegations, opinions, speculation, satire, and personal interpretation."></p>
 
         <div class="cta-row">
           <a class="button" href="#information-tabs">
@@ -3086,6 +3104,45 @@ Nadine M. Poe? Nadine Tran? Nadine Tran-Dang? Nadine Marie Cousins? Nadine Viet?
 
   <script>
     "use strict";
+
+    const typewriterElements = Array.from(
+      document.querySelectorAll("[data-typewriter]")
+    );
+
+    async function runHeroTypewriter() {
+      if (!typewriterElements.length) return;
+
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (reduceMotion) {
+        typewriterElements.forEach((element) => {
+          element.textContent = element.dataset.typewriter || "";
+        });
+        return;
+      }
+
+      typewriterElements.forEach((element) => {
+        element.textContent = "";
+      });
+
+      for (const element of typewriterElements) {
+        const text = element.dataset.typewriter || "";
+        element.classList.add("typing-cursor");
+
+        for (let index = 0; index < text.length; index += 1) {
+          element.textContent += text[index];
+
+          const character = text[index];
+          const delay = /[.!?]/.test(character) ? 58 : /[,;:]/.test(character) ? 38 : character === " " ? 12 : 20;
+          await new Promise((resolve) => window.setTimeout(resolve, delay));
+        }
+
+        element.classList.remove("typing-cursor");
+        await new Promise((resolve) => window.setTimeout(resolve, 145));
+      }
+    }
+
+    runHeroTypewriter();
 
     const tabButtons = Array.from(
       document.querySelectorAll("[data-tab-target]")
