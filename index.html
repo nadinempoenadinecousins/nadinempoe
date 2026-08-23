@@ -1729,10 +1729,143 @@
       }
     }
 
+
+
+    /* --------------------------------------------------
+       AMBIENT RELATIONSHIP IMAGE CYLINDERS - PAGE BACKGROUND
+       -------------------------------------------------- */
+    body {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .page {
+      position: relative;
+      z-index: 2;
+    }
+
+    .ambient-cylinder-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+      perspective: 1100px;
+      opacity: 0.48;
+      mask-image: radial-gradient(ellipse at center, black 14%, rgba(0, 0, 0, 0.82) 48%, transparent 92%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 14%, rgba(0, 0, 0, 0.82) 48%, transparent 92%);
+    }
+
+    .ambient-cylinder-bg::after {
+      position: absolute;
+      inset: 0;
+      content: "";
+      background:
+        radial-gradient(circle at 18% 12%, rgba(255, 79, 184, 0.18), transparent 30%),
+        linear-gradient(180deg, rgba(7, 7, 13, 0.28), rgba(7, 7, 13, 0.72));
+      backdrop-filter: blur(1.5px);
+    }
+
+    .ambient-cylinder-ring {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: min(34vw, 420px);
+      height: min(52vh, 520px);
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+
+    .ambient-cylinder-ring.ring-one {
+      transform: translate(-50%, -50%) rotateX(-8deg);
+      animation: ambientCylinderSpin 44s linear infinite;
+    }
+
+    .ambient-cylinder-ring.ring-two {
+      width: min(27vw, 340px);
+      height: min(42vh, 420px);
+      opacity: 0.55;
+      transform: translate(-50%, -50%) rotateX(11deg) rotateZ(4deg);
+      animation: ambientCylinderSpinReverse 58s linear infinite;
+    }
+
+    .ambient-cylinder-image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: clamp(120px, 13vw, 205px);
+      height: clamp(165px, 18vw, 275px);
+      object-fit: cover;
+      border-radius: 28px 28px 62px 62px / 28px 28px 48px 48px;
+      border: 1px solid rgba(255, 199, 235, 0.22);
+      box-shadow:
+        0 18px 54px rgba(0, 0, 0, 0.52),
+        0 0 30px rgba(255, 79, 184, 0.12);
+      filter: blur(2.4px) brightness(0.66) saturate(0.84);
+      opacity: 0.34;
+      backface-visibility: hidden;
+      transform:
+        translate(-50%, -50%)
+        rotateY(calc((360deg / var(--n)) * var(--i)))
+        translateZ(clamp(330px, 42vw, 650px));
+    }
+
+    .ambient-cylinder-ring.ring-two .ambient-cylinder-image {
+      width: clamp(95px, 10vw, 160px);
+      height: clamp(130px, 14vw, 220px);
+      filter: blur(3.5px) brightness(0.56) saturate(0.75);
+      opacity: 0.25;
+      transform:
+        translate(-50%, -50%)
+        rotateY(calc((360deg / var(--n)) * var(--i)))
+        translateZ(clamp(250px, 34vw, 500px));
+    }
+
+    @keyframes ambientCylinderSpin {
+      from { transform: translate(-50%, -50%) rotateX(-8deg) rotateY(0deg); }
+      to   { transform: translate(-50%, -50%) rotateX(-8deg) rotateY(360deg); }
+    }
+
+    @keyframes ambientCylinderSpinReverse {
+      from { transform: translate(-50%, -50%) rotateX(11deg) rotateZ(4deg) rotateY(360deg); }
+      to   { transform: translate(-50%, -50%) rotateX(11deg) rotateZ(4deg) rotateY(0deg); }
+    }
+
+    @media (max-width: 720px) {
+      .ambient-cylinder-bg { opacity: 0.34; }
+      .ambient-cylinder-ring { width: 280px; height: 390px; }
+      .ambient-cylinder-ring.ring-two { width: 220px; height: 320px; }
+      .ambient-cylinder-image {
+        width: 110px;
+        height: 155px;
+        transform:
+          translate(-50%, -50%)
+          rotateY(calc((360deg / var(--n)) * var(--i)))
+          translateZ(310px);
+      }
+      .ambient-cylinder-ring.ring-two .ambient-cylinder-image {
+        width: 85px;
+        height: 120px;
+        transform:
+          translate(-50%, -50%)
+          rotateY(calc((360deg / var(--n)) * var(--i)))
+          translateZ(235px);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .ambient-cylinder-ring { animation: none !important; }
+    }
+
   </style>
 </head>
 
 <body>
+  <div class="ambient-cylinder-bg" id="ambient-cylinder-bg" aria-hidden="true">
+    <div class="ambient-cylinder-ring ring-one"></div>
+    <div class="ambient-cylinder-ring ring-two"></div>
+  </div>
+
   <main class="page" id="top">
     <nav class="topbar" aria-label="Main navigation">
       <a class="brand" href="#top">
@@ -3058,7 +3191,10 @@
 
         <h3 class="subheading">Image Sections</h3>
 
-        <div class="image-grid">
+        <div class="relationship-carousel christian-carousel" aria-label="Good Christian image carousel">
+          <button class="relationship-carousel-control relationship-carousel-prev" type="button" aria-label="Show previous Good Christian image">&#10094;</button>
+
+          <div class="relationship-carousel-stage">
           <article class="image-card">
             <div class="image-frame">
               <img
@@ -3286,6 +3422,10 @@
           <article class="image-card"><div class="image-frame"><img src="GC/additional-2.jpg" alt="Additional Good Christian image 2" loading="lazy" /></div><div class="image-details"><h3>Additional Image 2</h3><p><code></code></p></div></article>
           <article class="image-card"><div class="image-frame"><img src="GC/additional-3.jpg" alt="Additional Good Christian image 3" loading="lazy" /></div><div class="image-details"><h3>Additional Image 3</h3><p><code></code></p></div></article>
           <article class="image-card"><div class="image-frame"><img src="GC/additional-4.jpg" alt="Additional Good Christian image 4" loading="lazy" /></div><div class="image-details"><h3>Additional Image 4</h3><p><code></code></p></div></article>
+          </div>
+
+          <button class="relationship-carousel-control relationship-carousel-next" type="button" aria-label="Show next Good Christian image">&#10095;</button>
+          <div class="relationship-carousel-counter" aria-live="polite"></div>
         </div>
       </div>
     </section>
@@ -3598,6 +3738,46 @@
         currentRotation = 0;
         targetRotation = 0;
         applyFeaturedRotation(0);
+      });
+    }
+
+
+
+
+    /* Build the blurred cylindrical page background from the existing
+       Multiple Relationships images. The visible tab carousel remains untouched. */
+    const ambientCylinderBackground = document.getElementById("ambient-cylinder-bg");
+
+    if (ambientCylinderBackground) {
+      const backgroundSources = Array.from(
+        document.querySelectorAll("#relationships-panel .relationship-carousel-stage .image-card img")
+      )
+        .map((image) => ({ src: image.getAttribute("src"), alt: image.getAttribute("alt") || "" }))
+        .filter((image) => image.src && !image.src.includes("additional-"))
+        .slice(0, 18);
+
+      const ambientRings = Array.from(
+        ambientCylinderBackground.querySelectorAll(".ambient-cylinder-ring")
+      );
+
+      ambientRings.forEach((ring, ringIndex) => {
+        const ringSources = ringIndex === 0
+          ? backgroundSources
+          : [...backgroundSources].reverse().filter((_, index) => index % 2 === 0);
+
+        const total = Math.max(ringSources.length, 1);
+
+        ringSources.forEach((source, index) => {
+          const image = document.createElement("img");
+          image.className = "ambient-cylinder-image";
+          image.src = source.src;
+          image.alt = "";
+          image.loading = "lazy";
+          image.decoding = "async";
+          image.style.setProperty("--i", index);
+          image.style.setProperty("--n", total);
+          ring.appendChild(image);
+        });
       });
     }
 
