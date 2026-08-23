@@ -1763,7 +1763,7 @@
       background:
         radial-gradient(circle at 18% 12%, rgba(255, 79, 184, 0.18), transparent 30%),
         linear-gradient(180deg, rgba(7, 7, 13, 0.28), rgba(7, 7, 13, 0.72));
-      backdrop-filter: blur(1.5px);
+      backdrop-filter: none;
     }
 
     .ambient-cylinder-ring {
@@ -1801,8 +1801,8 @@
       box-shadow:
         0 18px 54px rgba(0, 0, 0, 0.52),
         0 0 30px rgba(255, 79, 184, 0.12);
-      filter: blur(2px) brightness(0.78) saturate(0.88);
-      opacity: 0.48;
+      filter: none;
+      opacity: 0.90;
       backface-visibility: hidden;
       transform:
         translate(-50%, -50%)
@@ -1813,8 +1813,8 @@
     .ambient-cylinder-ring.ring-two .ambient-cylinder-image {
       width: clamp(95px, 10vw, 160px);
       height: clamp(130px, 14vw, 220px);
-      filter: blur(2.8px) brightness(0.68) saturate(0.80);
-      opacity: 0.36;
+      filter: none;
+      opacity: 0.75;
       transform:
         translate(-50%, -50%)
         rotateY(calc((360deg / var(--n)) * var(--i)))
