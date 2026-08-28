@@ -694,7 +694,7 @@
 
     .hero-copy h1 {
       max-width: 820px;
-      font-size: clamp(1.7rem, 3.1vw, 3.2rem);
+      font-size: clamp(0.92rem, 1.45vw, 1.18rem);
       line-height: 1.06;
       letter-spacing: -0.04em;
       font-weight: 700;
@@ -897,7 +897,7 @@
 
     @media (max-width: 720px) {
       .hero-copy h1 {
-        font-size: clamp(1.95rem, 10vw, 3.5rem);
+        font-size: clamp(0.88rem, 3.7vw, 1.05rem);
       }
 
       .hero-tabs-wrap {
@@ -1886,6 +1886,842 @@
       .ambient-cylinder-ring { animation: none !important; }
     }
 
+
+    /* --------------------------------------------------
+       REQUESTED ENHANCEMENTS: LARGER TAB CONTENT + CAROUSELS
+    -------------------------------------------------- */
+
+    .tabs-shell .tab-panel {
+      width: min(1360px, 100%);
+    }
+
+    .tab-popup-toolbar {
+      width: min(1360px, 100%);
+    }
+
+    .relationship-carousel,
+    .relationship-carousel-stage {
+      min-height: 700px;
+    }
+
+    .relationship-carousel .image-card {
+      width: clamp(280px, 38vw, 460px);
+      height: 560px;
+    }
+
+    .relationship-carousel .image-details {
+      min-height: 96px;
+      padding: 18px 20px;
+    }
+
+    #links-panel .link-grid {
+      gap: 22px;
+    }
+
+    #links-panel .link-card {
+      padding: 24px;
+      min-height: 128px;
+    }
+
+    /* --------------------------------------------------
+       HERO QUESTION QUOTE EFFECT
+    -------------------------------------------------- */
+
+    .hero-question-quote {
+      position: relative;
+      margin: 0 0 24px;
+      padding: 20px 22px 20px 28px;
+      overflow: hidden;
+      color: #ffffff;
+      font-family: var(--font-display);
+      font-size: clamp(1.05rem, 1.75vw, 1.42rem);
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: -0.025em;
+      background:
+        linear-gradient(135deg, rgba(255, 79, 184, 0.18), rgba(255, 255, 255, 0.035));
+      border: 1px solid rgba(255, 139, 214, 0.36);
+      border-left: 4px solid var(--pink);
+      border-radius: 18px;
+      box-shadow:
+        0 18px 48px rgba(0, 0, 0, 0.34),
+        0 0 34px rgba(255, 79, 184, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.07);
+      isolation: isolate;
+      animation: heroQuoteGlow 4.5s ease-in-out infinite;
+    }
+
+
+    .hero-question-quote-top {
+      margin: 0 0 22px;
+      padding: 24px 28px 24px 34px;
+      font-size: clamp(1.3rem, 2.25vw, 1.8rem);
+      line-height: 1.3;
+    }
+
+    .hero-question-quote::before {
+      position: absolute;
+      top: -26px;
+      left: 9px;
+      z-index: -1;
+      content: "\201C";
+      color: rgba(255, 79, 184, 0.2);
+      font-family: Georgia, serif;
+      font-size: 8rem;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .hero-question-quote::after {
+      position: absolute;
+      inset: -80% auto -80% -35%;
+      width: 28%;
+      content: "";
+      pointer-events: none;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.26), transparent);
+      transform: rotate(16deg);
+      animation: heroQuoteShine 5.8s ease-in-out infinite;
+    }
+
+    @keyframes heroQuoteGlow {
+      0%, 100% { box-shadow: 0 18px 48px rgba(0,0,0,.34), 0 0 24px rgba(255,79,184,.10), inset 0 1px 0 rgba(255,255,255,.07); }
+      50% { box-shadow: 0 22px 54px rgba(0,0,0,.42), 0 0 42px rgba(255,79,184,.22), inset 0 1px 0 rgba(255,255,255,.10); }
+    }
+
+    @keyframes heroQuoteShine {
+      0%, 64% { left: -35%; opacity: 0; }
+      70% { opacity: .9; }
+      84% { left: 125%; opacity: 0; }
+      100% { left: 125%; opacity: 0; }
+    }
+
+    /* --------------------------------------------------
+       NADINE'S POSTS - RADIAL PRESS ORBIT
+    -------------------------------------------------- */
+
+    .nadine-posts {
+      margin-top: 26px;
+      padding: 18px;
+      overflow: hidden;
+      background: rgba(0, 0, 0, 0.24);
+      border: 1px solid rgba(255, 139, 214, 0.24);
+      border-radius: 22px;
+      box-shadow: inset 0 0 32px rgba(255, 79, 184, 0.05);
+    }
+
+    .nadine-posts-heading {
+      margin-bottom: 13px;
+      color: var(--pink-light);
+      font-family: var(--font-display);
+      font-size: clamp(1.55rem, 3vw, 2.25rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      text-align: center;
+      text-shadow: 0 0 12px rgba(255, 79, 184, .45), 0 0 28px rgba(255, 79, 184, .18);
+      animation: nadinePostsHeartbeat 1.35s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    @keyframes nadinePostsHeartbeat {
+      0%, 100% { transform: scale(1); text-shadow: 0 0 12px rgba(255,79,184,.38), 0 0 26px rgba(255,79,184,.14); }
+      10% { transform: scale(1.07); text-shadow: 0 0 18px rgba(255,79,184,.70), 0 0 38px rgba(255,79,184,.30); }
+      20% { transform: scale(1); }
+      30% { transform: scale(1.045); text-shadow: 0 0 16px rgba(255,79,184,.60), 0 0 34px rgba(255,79,184,.24); }
+      42% { transform: scale(1); }
+    }
+
+    .nadine-posts-orbit {
+      --orbit-radius: clamp(205px, 30vw, 285px);
+      position: relative;
+      width: 100%;
+      height: clamp(520px, 62vw, 660px);
+      margin: 0 auto;
+      isolation: isolate;
+    }
+
+    .nadine-posts-orbit::before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 0;
+      width: calc(var(--orbit-radius) * 2);
+      height: calc(var(--orbit-radius) * 2);
+      content: "";
+      pointer-events: none;
+      border: 1px solid rgba(255, 139, 214, .24);
+      border-radius: 50%;
+      box-shadow:
+        0 0 42px rgba(255, 79, 184, .10),
+        inset 0 0 42px rgba(255, 79, 184, .05);
+      transform: translate(-50%, -50%);
+    }
+
+    .nadine-posts-orbit::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 0;
+      width: calc(var(--orbit-radius) * 2);
+      height: calc(var(--orbit-radius) * 2);
+      content: "";
+      pointer-events: none;
+      opacity: .34;
+      border-radius: 50%;
+      background: repeating-conic-gradient(
+        from -90deg,
+        rgba(255, 139, 214, .52) 0deg 1deg,
+        transparent 1deg calc(360deg / 11)
+      );
+      -webkit-mask: radial-gradient(circle, transparent 0 19%, #000 20% 100%);
+      mask: radial-gradient(circle, transparent 0 19%, #000 20% 100%);
+      transform: translate(-50%, -50%);
+    }
+
+    .nadine-posts-stage {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(.82) rotate(0deg);
+      transition: opacity 500ms ease, transform 650ms cubic-bezier(.22,1,.36,1);
+      transform-origin: 50% 50%;
+    }
+
+    .nadine-posts.is-open .nadine-posts-stage {
+      opacity: 1;
+      pointer-events: auto;
+      transform: scale(1) rotate(0deg);
+      animation: nadinePostsOrbitSpin 42s linear infinite;
+    }
+
+    .nadine-posts.is-open .nadine-posts-orbit::after {
+      animation: nadinePostsOrbitSpin 42s linear infinite;
+    }
+
+    .nadine-post {
+      --angle: calc((360deg / 11) * var(--i));
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: clamp(116px, 14vw, 148px);
+      aspect-ratio: 4 / 5;
+      margin: 0;
+      overflow: hidden;
+      cursor: zoom-in;
+      background: rgba(255,255,255,.035);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 20px;
+      box-shadow:
+        0 18px 38px rgba(0,0,0,.42),
+        0 0 20px rgba(255,79,184,.14);
+      transform:
+        translate(-50%, -50%)
+        rotate(var(--angle))
+        translateY(calc(var(--orbit-radius) * -1))
+        rotate(calc(var(--angle) * -1));
+      transition:
+        filter 240ms ease,
+        border-color 240ms ease,
+        box-shadow 240ms ease;
+    }
+
+    .nadine-post img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 320ms cubic-bezier(.22,1,.36,1), filter 240ms ease;
+    }
+
+    .nadine-post::after {
+      position: absolute;
+      inset: 0;
+      content: "";
+      pointer-events: none;
+      background: linear-gradient(145deg, rgba(255,255,255,.16), transparent 34%, transparent 68%, rgba(255,79,184,.18));
+      opacity: .55;
+    }
+
+    .nadine-post:hover,
+    .nadine-post:focus-within {
+      z-index: 5;
+      border-color: rgba(255, 139, 214, .82);
+      box-shadow:
+        0 24px 52px rgba(0,0,0,.56),
+        0 0 0 1px rgba(255,79,184,.18),
+        0 0 32px rgba(255,79,184,.30);
+    }
+
+    .nadine-post:hover img,
+    .nadine-post:focus-within img {
+      filter: brightness(1.08) saturate(1.08);
+      transform: scale(1.055);
+    }
+
+    .nadine-posts-press {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 10;
+      display: grid;
+      width: clamp(112px, 16vw, 148px);
+      height: clamp(112px, 16vw, 148px);
+      place-items: center;
+      padding: 0;
+      color: #fff;
+      font: inherit;
+      font-family: var(--font-display);
+      font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+      font-weight: 800;
+      cursor: pointer;
+      background:
+        radial-gradient(circle at 35% 28%, rgba(255,255,255,.18), transparent 28%),
+        radial-gradient(circle, #ff4fb8 0%, #d82f94 58%, #7a124f 100%);
+      border: 2px solid rgba(255, 199, 235, .72);
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 10px rgba(255,79,184,.08),
+        0 0 42px rgba(255,79,184,.48),
+        0 18px 48px rgba(0,0,0,.48),
+        inset 0 0 28px rgba(255,255,255,.12);
+      transform: translate(-50%, -50%);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .nadine-posts-press:hover,
+    .nadine-posts-press:focus-visible {
+      outline: none;
+      box-shadow:
+        0 0 0 12px rgba(255,79,184,.11),
+        0 0 56px rgba(255,79,184,.62),
+        0 22px 56px rgba(0,0,0,.52),
+        inset 0 0 32px rgba(255,255,255,.18);
+      transform: translate(-50%, -50%) scale(1.055);
+    }
+
+    .nadine-posts-press::before,
+    .nadine-posts-press::after {
+      position: absolute;
+      inset: -12px;
+      content: "";
+      pointer-events: none;
+      border: 1px solid rgba(255,199,235,.28);
+      border-radius: 50%;
+    }
+
+    .nadine-posts-press::after {
+      inset: -24px;
+      border-color: rgba(255,79,184,.14);
+    }
+
+    .nadine-posts-status {
+      margin-top: 2px;
+      color: #cdb6c7;
+      font-size: .75rem;
+      text-align: center;
+    }
+
+    @keyframes nadinePostsOrbitSpin {
+      from { rotate: 0deg; }
+      to { rotate: -360deg; }
+    }
+
+    @media (max-width: 720px) {
+      .nadine-posts {
+        padding: 15px 10px 16px;
+      }
+
+      .nadine-posts-orbit {
+        --orbit-radius: clamp(155px, 45vw, 205px);
+        height: clamp(430px, 112vw, 535px);
+      }
+
+      .nadine-post {
+        width: clamp(92px, 25vw, 120px);
+        border-radius: 16px;
+      }
+
+      .nadine-posts-press {
+        width: clamp(92px, 25vw, 118px);
+        height: clamp(92px, 25vw, 118px);
+        font-size: 1.05rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nadine-posts-orbit {
+        --orbit-radius: 148px;
+        height: 405px;
+      }
+
+      .nadine-post {
+        width: 86px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-question-quote,
+      .hero-question-quote::after,
+      .nadine-posts-heading,
+      .nadine-posts.is-open .nadine-posts-stage,
+      .nadine-posts.is-open .nadine-posts-orbit::after {
+        animation: none !important;
+      }
+    }
+
+    /* Lightbox zoom controls */
+    .image-lightbox-toolbar {
+      position: fixed;
+      left: 50%;
+      bottom: 22px;
+      z-index: 10002;
+      display: flex;
+      gap: 8px;
+      padding: 8px;
+      background: rgba(20, 20, 28, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      box-shadow: 0 14px 36px rgba(0,0,0,.38);
+      backdrop-filter: blur(12px);
+      transform: translateX(-50%);
+    }
+
+    .image-lightbox-zoom {
+      display: grid;
+      width: 44px;
+      height: 44px;
+      place-items: center;
+      color: #fff;
+      font: inherit;
+      font-size: 1.2rem;
+      font-weight: 800;
+      cursor: pointer;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 999px;
+    }
+
+    .image-lightbox-zoom:hover,
+    .image-lightbox-zoom:focus-visible {
+      background: rgba(255,79,184,.24);
+      outline: none;
+    }
+
+    .image-lightbox img {
+      transform-origin: center center;
+      transition: transform 180ms ease;
+    }
+
+    @media (max-width: 720px) {
+      .relationship-carousel,
+      .relationship-carousel-stage {
+        min-height: 610px;
+      }
+
+      .relationship-carousel .image-card {
+        width: min(78vw, 360px);
+        height: 480px;
+      }
+
+      .nadine-posts-stage {
+        grid-template-columns: repeat(11, 112px);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-question-quote,
+      .hero-question-quote::after,
+      .nadine-posts-heading {
+        animation: none !important;
+      }
+    }
+
+
+    /* --------------------------------------------------
+       REQUESTED TOP QUESTION + ALWAYS-ON POSTS UPDATE
+       -------------------------------------------------- */
+
+    .hero-question-quote.hero-question-quote-top {
+      position: relative;
+      width: 100%;
+      margin: 0 0 24px;
+      padding: clamp(22px, 3vw, 34px) clamp(24px, 4vw, 46px);
+      overflow: hidden;
+      color: #ffffff;
+      font-size: clamp(1.35rem, 2.6vw, 2.15rem);
+      line-height: 1.24;
+      text-align: center;
+      background:
+        radial-gradient(circle at 18% 0%, rgba(255, 79, 184, 0.22), transparent 36%),
+        radial-gradient(circle at 82% 100%, rgba(122, 61, 255, 0.18), transparent 38%),
+        linear-gradient(110deg, rgba(12, 8, 18, 0.95), rgba(24, 8, 22, 0.88) 52%, rgba(8, 7, 15, 0.96));
+      border: 1px solid rgba(255, 199, 235, 0.34);
+      border-left: 1px solid rgba(255, 199, 235, 0.34);
+      border-radius: 14px;
+      box-shadow:
+        0 22px 64px rgba(0, 0, 0, 0.46),
+        0 0 0 1px rgba(255, 79, 184, 0.08),
+        0 0 34px rgba(255, 79, 184, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      isolation: isolate;
+      animation: questionPanelPulse 4.8s ease-in-out infinite;
+    }
+
+    .hero-question-quote.hero-question-quote-top::before {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      content: "";
+      pointer-events: none;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(100deg,
+        rgba(255, 79, 184, 0.95),
+        rgba(255, 255, 255, 0.34),
+        rgba(137, 82, 255, 0.8),
+        rgba(255, 79, 184, 0.95));
+      background-size: 260% 100%;
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      animation: questionBorderFlow 5s linear infinite;
+    }
+
+    .hero-question-quote.hero-question-quote-top::after {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -28%;
+      width: 20%;
+      content: "";
+      pointer-events: none;
+      opacity: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), rgba(255,199,235,.26), transparent);
+      filter: blur(1px);
+      transform: skewX(-18deg);
+      animation: questionSweep 6.2s ease-in-out infinite;
+    }
+
+    .hero-question-quote.hero-question-quote-top {
+      text-shadow:
+        0 0 18px rgba(255, 79, 184, 0.20),
+        0 2px 18px rgba(0, 0, 0, 0.65);
+    }
+
+    .nadine-posts-stage {
+      opacity: 1;
+      pointer-events: auto;
+      transform: scale(1) rotate(0deg);
+      animation: nadinePostsOrbitSpin 42s linear infinite;
+    }
+
+    .nadine-posts-orbit::after {
+      opacity: .58;
+      animation: nadinePostsOrbitSpin 42s linear infinite;
+    }
+
+    .nadine-posts-orbit::before {
+      border-color: rgba(255, 139, 214, .42);
+      box-shadow:
+        0 0 30px rgba(255, 79, 184, .16),
+        0 0 70px rgba(255, 79, 184, .08),
+        inset 0 0 38px rgba(255, 79, 184, .08);
+    }
+
+    @keyframes questionBorderFlow {
+      from { background-position: 0% 50%; }
+      to { background-position: 260% 50%; }
+    }
+
+    @keyframes questionSweep {
+      0%, 60% { left: -28%; opacity: 0; }
+      68% { opacity: .9; }
+      84% { left: 112%; opacity: 0; }
+      100% { left: 112%; opacity: 0; }
+    }
+
+    @keyframes questionPanelPulse {
+      0%, 100% {
+        box-shadow: 0 22px 64px rgba(0,0,0,.46), 0 0 0 1px rgba(255,79,184,.08), 0 0 28px rgba(255,79,184,.14), inset 0 1px 0 rgba(255,255,255,.08);
+      }
+      50% {
+        box-shadow: 0 26px 72px rgba(0,0,0,.52), 0 0 0 1px rgba(255,79,184,.15), 0 0 48px rgba(255,79,184,.25), inset 0 1px 0 rgba(255,255,255,.11);
+      }
+    }
+
+    .hero-question-quote.hero-question-quote-top {
+      font-family: "Space Grotesk", "Inter", "Segoe UI", Arial, sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      color: #fff4fb;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(255, 79, 184, 0.28), transparent 34%),
+        radial-gradient(circle at 88% 85%, rgba(160, 92, 255, 0.20), transparent 36%),
+        linear-gradient(112deg, rgba(16, 8, 22, 0.97), rgba(39, 9, 31, 0.91) 50%, rgba(9, 8, 18, 0.98));
+      text-shadow: 0 0 16px rgba(255, 151, 216, .24), 0 2px 18px rgba(0,0,0,.7);
+    }
+
+    .nadine-posts-press {
+      color: transparent;
+      font-size: 0;
+    }
+
+    .nadine-posts-press::before,
+    .nadine-posts-press::after {
+      content: "";
+    }
+
+    @media (max-width: 720px) {
+      .hero-question-quote.hero-question-quote-top {
+        padding: 20px 18px;
+        font-size: clamp(1.12rem, 5vw, 1.5rem);
+        border-radius: 12px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-question-quote.hero-question-quote-top,
+      .hero-question-quote.hero-question-quote-top::before,
+      .hero-question-quote.hero-question-quote-top::after,
+      .nadine-posts-stage,
+      .nadine-posts-orbit::after {
+        animation: none !important;
+      }
+    }
+
+
+    /* NADINE POSTS REVEAL + LIGHTNING SLIDESHOW */
+    .nadine-posts {
+      position: relative;
+    }
+
+    .nadine-posts-press {
+      position: relative;
+      color: transparent;
+      font-size: 0;
+      background:
+        radial-gradient(circle at 35% 28%, rgba(255,255,255,.20), transparent 28%),
+        radial-gradient(circle, #ff4fb8 0%, #c61f85 52%, #05030a 100%);
+      overflow: visible;
+    }
+
+    .nadine-posts-press::before {
+      inset: -14px;
+      border: 1px solid rgba(255,79,184,.58);
+      box-shadow: 0 0 26px rgba(255,79,184,.40);
+    }
+
+    .nadine-posts-press::after {
+      inset: -28px;
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 0 42px rgba(255,79,184,.18);
+    }
+
+    .nadine-posts-press.lightning-hit {
+      animation: nadineButtonStrike 620ms ease;
+    }
+
+    .nadine-posts-press.lightning-hit::before,
+    .nadine-posts-press.lightning-hit::after {
+      animation: nadineRingStrike 620ms ease;
+    }
+
+    .nadine-posts-stage,
+    .nadine-posts-orbit::after {
+      opacity: 0;
+      pointer-events: none;
+      animation: none;
+      transition: opacity 420ms ease, transform 520ms cubic-bezier(.22,1,.36,1);
+    }
+
+    .nadine-posts.is-open .nadine-posts-stage {
+      opacity: .26;
+      pointer-events: auto;
+      animation: nadinePostsOrbitSpin 42s linear infinite;
+    }
+
+    .nadine-posts.is-open .nadine-posts-orbit::after {
+      opacity: .54;
+      animation: nadinePostsOrbitSpin 42s linear infinite;
+    }
+
+    .nadine-posts-lightning {
+      position: absolute;
+      inset: 48px 0 auto;
+      z-index: 30;
+      height: 260px;
+      pointer-events: none;
+      opacity: 0;
+      background:
+        linear-gradient(112deg, transparent 0 47%, rgba(255,255,255,.96) 48%, #ff4fb8 49%, transparent 50%),
+        linear-gradient(70deg, transparent 0 53%, #ff4fb8 54%, rgba(255,255,255,.88) 55%, transparent 56%),
+        radial-gradient(circle at 50% 50%, rgba(255,79,184,.35), transparent 42%);
+      filter: drop-shadow(0 0 12px #ff4fb8) drop-shadow(0 0 28px rgba(255,79,184,.85));
+      mix-blend-mode: screen;
+    }
+
+    .nadine-posts.lightning-active .nadine-posts-lightning {
+      animation: nadineLightningFlash 760ms ease;
+    }
+
+    .nadine-posts-showcase {
+      display: none;
+      position: relative;
+      margin-top: 18px;
+      padding: clamp(16px, 2.4vw, 24px);
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(255,79,184,.16), transparent 36%),
+        linear-gradient(180deg, rgba(8,5,12,.98), rgba(2,2,6,.99));
+      border: 1px solid rgba(255,79,184,.38);
+      border-radius: 24px;
+      box-shadow: 0 24px 70px rgba(0,0,0,.48), 0 0 36px rgba(255,79,184,.12);
+    }
+
+    .nadine-posts.is-open .nadine-posts-showcase {
+      display: block;
+      animation: nadineShowcaseIn 520ms cubic-bezier(.22,1,.36,1);
+    }
+
+    .nadine-showcase-stage {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: clamp(420px, 58vw, 680px);
+      padding: 18px 64px;
+    }
+
+    .nadine-showcase-image {
+      display: block;
+      width: min(820px, 86%);
+      max-height: 620px;
+      object-fit: contain;
+      border: 1px solid rgba(255,199,235,.28);
+      border-radius: 22px;
+      box-shadow: 0 32px 80px rgba(0,0,0,.58), 0 0 44px rgba(255,79,184,.22);
+      transform: scale(.97);
+      transition: opacity 220ms ease, transform 320ms ease;
+      cursor: zoom-in;
+    }
+
+    .nadine-showcase-image.is-changing {
+      opacity: .24;
+      transform: scale(.94);
+    }
+
+    .nadine-showcase-nav {
+      position: absolute;
+      top: 50%;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.20);
+      background: rgba(5,4,9,.82);
+      color: #fff;
+      font-size: 1.7rem;
+      cursor: pointer;
+      transform: translateY(-50%);
+      box-shadow: 0 0 24px rgba(255,79,184,.18);
+      z-index: 5;
+    }
+
+    .nadine-showcase-nav:hover,
+    .nadine-showcase-nav:focus-visible {
+      background: #ff4fb8;
+      color: #10030b;
+      outline: none;
+      box-shadow: 0 0 34px rgba(255,79,184,.52);
+    }
+
+    .nadine-showcase-prev { left: 12px; }
+    .nadine-showcase-next { right: 12px; }
+
+    .nadine-showcase-thumbs {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: clamp(72px, 10vw, 104px);
+      gap: 10px;
+      padding: 10px 4px 2px;
+      overflow-x: auto;
+      scrollbar-width: thin;
+    }
+
+    .nadine-showcase-thumb {
+      padding: 0;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      cursor: pointer;
+      background: #09060d;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 12px;
+      opacity: .62;
+      transition: opacity 180ms ease, border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .nadine-showcase-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
+    .nadine-showcase-thumb:hover,
+    .nadine-showcase-thumb:focus-visible,
+    .nadine-showcase-thumb.active {
+      opacity: 1;
+      border-color: #ff4fb8;
+      box-shadow: 0 0 20px rgba(255,79,184,.30);
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .nadine-showcase-meta {
+      margin-top: 12px;
+      color: var(--pink-light);
+      font-size: .8rem;
+      font-weight: 800;
+      text-align: center;
+      letter-spacing: .04em;
+    }
+
+    @keyframes nadineLightningFlash {
+      0% { opacity: 0; transform: scaleX(.9); }
+      12% { opacity: 1; }
+      20% { opacity: .1; }
+      28% { opacity: 1; }
+      44% { opacity: .18; }
+      58% { opacity: .9; }
+      100% { opacity: 0; transform: scaleX(1.04); }
+    }
+
+    @keyframes nadineButtonStrike {
+      0%,100% { transform: translate(-50%,-50%) scale(1); }
+      18% { transform: translate(-50%,-50%) scale(.94); }
+      36% { transform: translate(-50%,-50%) scale(1.10); box-shadow: 0 0 70px rgba(255,79,184,.95), inset 0 0 30px rgba(255,255,255,.25); }
+      58% { transform: translate(-50%,-50%) scale(1.02); }
+    }
+
+    @keyframes nadineRingStrike {
+      0%,100% { opacity: .45; }
+      35% { opacity: 1; box-shadow: 0 0 55px rgba(255,79,184,.90); }
+    }
+
+    @keyframes nadineShowcaseIn {
+      from { opacity: 0; transform: translateY(12px) scale(.985); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @media (max-width: 720px) {
+      .nadine-showcase-stage { min-height: 420px; padding: 14px 46px; }
+      .nadine-showcase-image { width: 94%; max-height: 470px; }
+      .nadine-showcase-nav { width: 42px; height: 42px; font-size: 1.35rem; }
+      .nadine-showcase-prev { left: 2px; }
+      .nadine-showcase-next { right: 2px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .nadine-posts-lightning,
+      .nadine-posts-press,
+      .nadine-posts-press::before,
+      .nadine-posts-press::after,
+      .nadine-posts-showcase { animation: none !important; }
+    }
+
   </style>
 </head>
 
@@ -1896,6 +2732,10 @@
   </div>
 
   <main class="page" id="top">
+    <blockquote class="hero-question-quote hero-question-quote-top">
+      &ldquo;Is Nadine Marie Tran Cousins Poe aka Naddy a serial sweetheart or romance scam artist?&rdquo;
+    </blockquote>
+
     <nav class="topbar" aria-label="Main navigation">
       <a class="brand" href="#top">
         Who Is Nadine Poe? <span>CEO? The Secret Spa - NOVA?</span>
@@ -1999,27 +2839,38 @@
 
         <p class="intro typing-line" data-typewriter="Feel free to check it's section."></p>
 
-        <div class="cta-row">
-          <a class="button" href="#overview-panel">
-            View All Sections
-          </a>
+        <section class="nadine-posts" id="nadine-posts" aria-labelledby="nadine-posts-title">
+          <h2 class="nadine-posts-heading" id="nadine-posts-title">Nadine's Posts</h2>
+          <div class="nadine-posts-orbit">
+            <div class="nadine-posts-stage" id="nadine-posts-stage" aria-label="Nadine's Posts image carousel">
+              <!-- Upload/replace these 11 files in the NP folder using the same file names, or change each src below. -->
+              <figure class="nadine-post" style="--i:0"><img src="NP/Post1.png" alt="Nadine's post 1" loading="lazy" /></figure>
+              <figure class="nadine-post" style="--i:1"><img src="NP/Post2.png" alt="Nadine's post 2" loading="lazy" /></figure>
+              <figure class="nadine-post" style="--i:2"><img src="NP/Post3.png" alt="Nadine's post 3" loading="lazy" /></figure>
+              <figure class="nadine-post" style="--i:3"><img src="NP/Post4.png" alt="Nadine's post 4" loading="lazy" /></figure>
+              <figure class="nadine-post" style="--i:4"><img src="NP/Post5.png" alt="Nadine's post 5" loading="lazy" /></figure>
+              <figure class="nadine-post" style="--i:5"><img src="NP/Post6.png" alt="Nadine's post 6" loading="lazy" /></figure>
+              <figure class="nadine-post" style="--i:6"><img src="NP/Post7.png" alt="Nadine's post 7" loading="lazy" /></figure>
+              <figure class="nadine-post" style="--i:7"><img src="NP/Post8.png" alt="Nadine's post 8" loading="lazy" /></figure>
+              <figure class="nadine-post" style="--i:8"><img src="NP/Post9.png" alt="Nadine's post 9" loading="lazy" /></figure>
+              <figure class="nadine-post" style="--i:9"><img src="NP/Post10.png" alt="Nadine's post 10" loading="lazy" /></figure>
+              <figure class="nadine-post" style="--i:10"><img src="NP/Post11.png" alt="Nadine's post 11" loading="lazy" /></figure>
+            </div>
+            <button class="nadine-posts-press" id="nadine-posts-press" type="button" aria-expanded="false" aria-controls="nadine-posts-stage nadine-posts-showcase" aria-label="Show Nadine posts slideshow"></button>
+          </div>
+          <div class="nadine-posts-lightning" aria-hidden="true"></div>
+          <div class="nadine-posts-status" id="nadine-posts-status" aria-live="polite">1 / 11</div>
 
-          <button
-            class="button secondary"
-            type="button"
-            data-open-tab="records-panel"
-          >
-            Public Records
-          </button>
-
-          <button
-            class="button secondary"
-            type="button"
-            data-open-tab="business-panel"
-          >
-            Business or Scam?
-          </button>
-        </div>
+          <div class="nadine-posts-showcase" id="nadine-posts-showcase" aria-hidden="true">
+            <div class="nadine-showcase-stage">
+              <button class="nadine-showcase-nav nadine-showcase-prev" id="nadine-showcase-prev" type="button" aria-label="Previous post">&#10094;</button>
+              <img class="nadine-showcase-image" id="nadine-showcase-image" src="NP/Post1.png" alt="Nadine's post 1" />
+              <button class="nadine-showcase-nav nadine-showcase-next" id="nadine-showcase-next" type="button" aria-label="Next post">&#10095;</button>
+            </div>
+            <div class="nadine-showcase-thumbs" id="nadine-showcase-thumbs" aria-label="Select Nadine post"></div>
+            <div class="nadine-showcase-meta" id="nadine-showcase-meta">1 / 11</div>
+          </div>
+        </section>
       </div>
 
   
@@ -3487,6 +4338,12 @@
     </button>
 
     <img id="image-lightbox-image" src="" alt="" />
+
+    <div class="image-lightbox-toolbar" role="group" aria-label="Image zoom controls">
+      <button class="image-lightbox-zoom" id="image-lightbox-zoom-out" type="button" aria-label="Zoom out">&minus;</button>
+      <button class="image-lightbox-zoom" id="image-lightbox-zoom-reset" type="button" aria-label="Reset zoom">1:1</button>
+      <button class="image-lightbox-zoom" id="image-lightbox-zoom-in" type="button" aria-label="Zoom in">+</button>
+    </div>
   </div>
 
   <script>
@@ -3907,11 +4764,111 @@
       updateRelationshipCarousel();
     });
 
+    const nadinePostsSection = document.getElementById("nadine-posts");
+    const nadinePostsStage = document.getElementById("nadine-posts-stage");
+    const nadinePostsStatus = document.getElementById("nadine-posts-status");
+    const nadinePostsPress = document.getElementById("nadine-posts-press");
+    const nadinePostsShowcase = document.getElementById("nadine-posts-showcase");
+    const nadineShowcaseImage = document.getElementById("nadine-showcase-image");
+    const nadineShowcasePrev = document.getElementById("nadine-showcase-prev");
+    const nadineShowcaseNext = document.getElementById("nadine-showcase-next");
+    const nadineShowcaseThumbs = document.getElementById("nadine-showcase-thumbs");
+    const nadineShowcaseMeta = document.getElementById("nadine-showcase-meta");
+
+    if (nadinePostsSection && nadinePostsStage && nadinePostsPress) {
+      const postCards = Array.from(nadinePostsStage.querySelectorAll(".nadine-post"));
+      const postImages = postCards.map((card) => card.querySelector("img")).filter(Boolean);
+      let nadinePostIndex = 0;
+
+      postCards.forEach((card, index) => {
+        card.style.setProperty("--i", index);
+        card.setAttribute("aria-label", `Nadine's post ${index + 1} of ${postCards.length}`);
+      });
+
+      function showNadinePost(index, animate = true) {
+        if (!postImages.length || !nadineShowcaseImage) return;
+        nadinePostIndex = (index + postImages.length) % postImages.length;
+        const sourceImage = postImages[nadinePostIndex];
+
+        if (animate) nadineShowcaseImage.classList.add("is-changing");
+        window.setTimeout(() => {
+          nadineShowcaseImage.src = sourceImage.currentSrc || sourceImage.src;
+          nadineShowcaseImage.alt = sourceImage.alt || `Nadine's post ${nadinePostIndex + 1}`;
+          nadineShowcaseImage.classList.remove("is-changing");
+        }, animate ? 120 : 0);
+
+        if (nadineShowcaseMeta) nadineShowcaseMeta.textContent = `${nadinePostIndex + 1} / ${postImages.length}`;
+        if (nadinePostsStatus) nadinePostsStatus.textContent = `${nadinePostIndex + 1} / ${postImages.length}`;
+        if (nadineShowcaseThumbs) {
+          nadineShowcaseThumbs.querySelectorAll(".nadine-showcase-thumb").forEach((button, buttonIndex) => {
+            button.classList.toggle("active", buttonIndex === nadinePostIndex);
+            button.setAttribute("aria-current", buttonIndex === nadinePostIndex ? "true" : "false");
+          });
+        }
+      }
+
+      if (nadineShowcaseThumbs) {
+        postImages.forEach((image, index) => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "nadine-showcase-thumb";
+          button.setAttribute("aria-label", `Show Nadine's post ${index + 1}`);
+          const thumb = document.createElement("img");
+          thumb.src = image.currentSrc || image.src;
+          thumb.alt = image.alt || `Nadine's post ${index + 1}`;
+          thumb.loading = "lazy";
+          button.appendChild(thumb);
+          button.addEventListener("click", () => showNadinePost(index));
+          nadineShowcaseThumbs.appendChild(button);
+        });
+      }
+
+      function triggerNadineLightning() {
+        nadinePostsSection.classList.remove("lightning-active");
+        nadinePostsPress.classList.remove("lightning-hit");
+        void nadinePostsSection.offsetWidth;
+        nadinePostsSection.classList.add("lightning-active");
+        nadinePostsPress.classList.add("lightning-hit");
+        window.setTimeout(() => {
+          nadinePostsSection.classList.remove("lightning-active");
+          nadinePostsPress.classList.remove("lightning-hit");
+        }, 800);
+      }
+
+      nadinePostsPress.addEventListener("click", () => {
+        const willOpen = !nadinePostsSection.classList.contains("is-open");
+        triggerNadineLightning();
+        nadinePostsSection.classList.toggle("is-open", willOpen);
+        nadinePostsPress.setAttribute("aria-expanded", String(willOpen));
+        if (nadinePostsShowcase) nadinePostsShowcase.setAttribute("aria-hidden", String(!willOpen));
+        if (willOpen) {
+          showNadinePost(nadinePostIndex, false);
+          window.setTimeout(() => nadinePostsShowcase?.scrollIntoView({ behavior: "smooth", block: "nearest" }), 260);
+        }
+      });
+
+      nadineShowcasePrev?.addEventListener("click", () => showNadinePost(nadinePostIndex - 1));
+      nadineShowcaseNext?.addEventListener("click", () => showNadinePost(nadinePostIndex + 1));
+
+      nadinePostsShowcase?.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowLeft") { event.preventDefault(); showNadinePost(nadinePostIndex - 1); }
+        if (event.key === "ArrowRight") { event.preventDefault(); showNadinePost(nadinePostIndex + 1); }
+      });
+
+      showNadinePost(0, false);
+      if (nadinePostsStatus) nadinePostsStatus.textContent = `${postImages.length} posts`;
+    }
+
+
     const imageLightbox = document.getElementById("image-lightbox");
     const imageLightboxImage = document.getElementById("image-lightbox-image");
     const imageLightboxClose = document.getElementById("image-lightbox-close");
+    const imageLightboxZoomIn = document.getElementById("image-lightbox-zoom-in");
+    const imageLightboxZoomOut = document.getElementById("image-lightbox-zoom-out");
+    const imageLightboxZoomReset = document.getElementById("image-lightbox-zoom-reset");
+    let imageLightboxZoom = 1;
     const enlargeableImages = Array.from(
-      document.querySelectorAll(".image-frame img, .featured-image-wrap img")
+      document.querySelectorAll(".image-frame img, .featured-image-wrap img, .nadine-post img")
     );
 
     let lastFocusedImage = null;
@@ -3920,6 +4877,8 @@
       lastFocusedImage = image;
       imageLightboxImage.src = image.currentSrc || image.src;
       imageLightboxImage.alt = image.alt || "Enlarged image";
+      imageLightboxZoom = 1;
+      imageLightboxImage.style.transform = "scale(1)";
       imageLightbox.classList.add("open");
       imageLightbox.setAttribute("aria-hidden", "false");
       document.body.classList.add("lightbox-open");
@@ -3930,6 +4889,8 @@
       imageLightbox.classList.remove("open");
       imageLightbox.setAttribute("aria-hidden", "true");
       imageLightboxImage.src = "";
+      imageLightboxZoom = 1;
+      imageLightboxImage.style.transform = "scale(1)";
       document.body.classList.remove("lightbox-open");
       lastFocusedImage?.focus();
     }
@@ -3955,6 +4916,21 @@
         }
       });
     });
+
+    function setImageLightboxZoom(nextZoom) {
+      imageLightboxZoom = Math.max(0.5, Math.min(4, nextZoom));
+      imageLightboxImage.style.transform = `scale(${imageLightboxZoom})`;
+    }
+
+    imageLightboxZoomIn?.addEventListener("click", () => setImageLightboxZoom(imageLightboxZoom + 0.25));
+    imageLightboxZoomOut?.addEventListener("click", () => setImageLightboxZoom(imageLightboxZoom - 0.25));
+    imageLightboxZoomReset?.addEventListener("click", () => setImageLightboxZoom(1));
+
+    imageLightbox?.addEventListener("wheel", (event) => {
+      if (!imageLightbox.classList.contains("open")) return;
+      event.preventDefault();
+      setImageLightboxZoom(imageLightboxZoom + (event.deltaY < 0 ? 0.15 : -0.15));
+    }, { passive: false });
 
     imageLightboxClose?.addEventListener("click", closeImageLightbox);
 
