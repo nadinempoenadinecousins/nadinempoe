@@ -1996,7 +1996,7 @@
     }
 
     /* --------------------------------------------------
-       NADINE'S POSTS - RADIAL PRESS ORBIT
+       NADINE'S POSTS - VERTICAL CYLINDRICAL 3D SLIDESHOW
     -------------------------------------------------- */
 
     .nadine-posts {
@@ -2030,201 +2030,187 @@
       42% { transform: scale(1); }
     }
 
-    .nadine-posts-orbit {
-      --orbit-radius: clamp(205px, 30vw, 285px);
+    .nadine-posts-carousel {
       position: relative;
       width: 100%;
-      height: clamp(520px, 62vw, 660px);
-      margin: 0 auto;
-      isolation: isolate;
+      height: clamp(500px, 68vw, 720px);
+      overflow: hidden;
+      perspective: 1450px;
+      perspective-origin: 50% 50%;
+      touch-action: pan-x;
+      user-select: none;
+      outline: none;
+      background:
+        radial-gradient(ellipse at center, rgba(255,79,184,.10), transparent 54%),
+        linear-gradient(180deg, rgba(255,255,255,.018), rgba(0,0,0,.08));
+      border-radius: 18px;
     }
 
-    .nadine-posts-orbit::before {
+    .nadine-posts-carousel::before,
+    .nadine-posts-carousel::after {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      z-index: 0;
-      width: calc(var(--orbit-radius) * 2);
-      height: calc(var(--orbit-radius) * 2);
+      left: 12%;
+      right: 12%;
+      z-index: 8;
+      height: 16%;
       content: "";
       pointer-events: none;
-      border: 1px solid rgba(255, 139, 214, .24);
-      border-radius: 50%;
-      box-shadow:
-        0 0 42px rgba(255, 79, 184, .10),
-        inset 0 0 42px rgba(255, 79, 184, .05);
-      transform: translate(-50%, -50%);
     }
 
-    .nadine-posts-orbit::after {
+    .nadine-posts-carousel::before {
+      top: 0;
+      background: linear-gradient(to bottom, rgba(5,4,9,.90), transparent);
+    }
+
+    .nadine-posts-carousel::after {
+      bottom: 0;
+      background: linear-gradient(to top, rgba(5,4,9,.90), transparent);
+    }
+
+    .nadine-posts-nav {
       position: absolute;
       top: 50%;
-      left: 50%;
-      z-index: 0;
-      width: calc(var(--orbit-radius) * 2);
-      height: calc(var(--orbit-radius) * 2);
-      content: "";
-      pointer-events: none;
-      opacity: .34;
+      z-index: 30;
+      display: grid;
+      width: 50px;
+      height: 50px;
+      place-items: center;
+      color: #ffffff;
+      font: inherit;
+      font-size: 1.65rem;
+      line-height: 1;
+      cursor: pointer;
+      background: rgba(8, 7, 14, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.22);
       border-radius: 50%;
-      background: repeating-conic-gradient(
-        from -90deg,
-        rgba(255, 139, 214, .52) 0deg 1deg,
-        transparent 1deg calc(360deg / 11)
-      );
-      -webkit-mask: radial-gradient(circle, transparent 0 19%, #000 20% 100%);
-      mask: radial-gradient(circle, transparent 0 19%, #000 20% 100%);
-      transform: translate(-50%, -50%);
+      box-shadow: 0 14px 34px rgba(0,0,0,.42), 0 0 22px rgba(255,79,184,.16);
+      backdrop-filter: blur(12px);
+      transform: translateY(-50%);
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
     }
+
+    .nadine-posts-nav:hover,
+    .nadine-posts-nav:focus-visible {
+      background: var(--pink);
+      color: #14050f;
+      border-color: rgba(255,255,255,.44);
+      outline: none;
+      transform: translateY(-50%) scale(1.07);
+    }
+
+    .nadine-posts-prev { left: 12px; }
+    .nadine-posts-next { right: 12px; }
 
     .nadine-posts-stage {
       position: absolute;
       inset: 0;
-      z-index: 2;
-      opacity: 0;
-      pointer-events: none;
-      transform: scale(.82) rotate(0deg);
-      transition: opacity 500ms ease, transform 650ms cubic-bezier(.22,1,.36,1);
-      transform-origin: 50% 50%;
-    }
-
-    .nadine-posts.is-open .nadine-posts-stage {
-      opacity: 1;
-      pointer-events: auto;
-      transform: scale(1) rotate(0deg);
-      animation: nadinePostsOrbitSpin 42s linear infinite;
-    }
-
-    .nadine-posts.is-open .nadine-posts-orbit::after {
-      animation: nadinePostsOrbitSpin 42s linear infinite;
+      transform-style: preserve-3d;
     }
 
     .nadine-post {
-      --angle: calc((360deg / 11) * var(--i));
       position: absolute;
       top: 50%;
       left: 50%;
-      width: clamp(116px, 14vw, 148px);
-      aspect-ratio: 4 / 5;
+      width: min(78%, 620px);
+      height: min(82%, 620px);
       margin: 0;
+      padding: 12px;
       overflow: hidden;
-      cursor: zoom-in;
-      background: rgba(255,255,255,.035);
-      border: 1px solid rgba(255,255,255,.14);
-      border-radius: 20px;
-      box-shadow:
-        0 18px 38px rgba(0,0,0,.42),
-        0 0 20px rgba(255,79,184,.14);
-      transform:
-        translate(-50%, -50%)
-        rotate(var(--angle))
-        translateY(calc(var(--orbit-radius) * -1))
-        rotate(calc(var(--angle) * -1));
+      cursor: pointer;
+      background: rgba(7,6,12,.90);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 22px;
+      box-shadow: 0 24px 58px rgba(0,0,0,.52), 0 0 28px rgba(255,79,184,.12);
+      opacity: 0;
+      pointer-events: none;
+      transform: translate(-50%, -50%) translateZ(-240px) scale(.72);
+      transform-origin: center;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
       transition:
-        filter 240ms ease,
-        border-color 240ms ease,
-        box-shadow 240ms ease;
+        transform 680ms cubic-bezier(.22,1,.36,1),
+        opacity 420ms ease,
+        filter 420ms ease,
+        box-shadow 420ms ease,
+        border-color 420ms ease;
+      will-change: transform, opacity;
     }
 
     .nadine-post img {
       display: block;
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      transition: transform 320ms cubic-bezier(.22,1,.36,1), filter 240ms ease;
+      object-fit: contain;
+      object-position: center;
+      pointer-events: none;
+      background: rgba(0,0,0,.18);
+      border-radius: 14px;
+      transform: translateZ(1px);
+      transition: transform 360ms ease, filter 280ms ease;
     }
 
     .nadine-post::after {
       position: absolute;
-      inset: 0;
+      inset: 12px;
       content: "";
       pointer-events: none;
-      background: linear-gradient(145deg, rgba(255,255,255,.16), transparent 34%, transparent 68%, rgba(255,79,184,.18));
+      border-radius: 14px;
+      background: linear-gradient(125deg, rgba(255,255,255,.14), transparent 28%, transparent 72%, rgba(255,79,184,.12));
       opacity: .55;
     }
 
-    .nadine-post:hover,
-    .nadine-post:focus-within {
-      z-index: 5;
-      border-color: rgba(255, 139, 214, .82);
-      box-shadow:
-        0 24px 52px rgba(0,0,0,.56),
-        0 0 0 1px rgba(255,79,184,.18),
-        0 0 32px rgba(255,79,184,.30);
-    }
-
-    .nadine-post:hover img,
-    .nadine-post:focus-within img {
-      filter: brightness(1.08) saturate(1.08);
-      transform: scale(1.055);
-    }
-
-    .nadine-posts-press {
-      position: absolute;
-      top: 50%;
-      left: 50%;
+    .nadine-post.carousel-active {
       z-index: 10;
-      display: grid;
-      width: clamp(112px, 16vw, 148px);
-      height: clamp(112px, 16vw, 148px);
-      place-items: center;
-      padding: 0;
-      color: #fff;
-      font: inherit;
-      font-family: var(--font-display);
-      font-size: clamp(1.1rem, 2.2vw, 1.5rem);
-      font-weight: 800;
-      cursor: pointer;
-      background:
-        radial-gradient(circle at 35% 28%, rgba(255,255,255,.18), transparent 28%),
-        radial-gradient(circle, #ff4fb8 0%, #d82f94 58%, #7a124f 100%);
-      border: 2px solid rgba(255, 199, 235, .72);
-      border-radius: 50%;
-      box-shadow:
-        0 0 0 10px rgba(255,79,184,.08),
-        0 0 42px rgba(255,79,184,.48),
-        0 18px 48px rgba(0,0,0,.48),
-        inset 0 0 28px rgba(255,255,255,.12);
-      transform: translate(-50%, -50%);
-      transition: transform 180ms ease, box-shadow 180ms ease;
+      opacity: 1;
+      pointer-events: auto;
+      filter: brightness(1.04) saturate(1.03);
+      border-color: rgba(255,199,235,.34);
+      box-shadow: 0 34px 78px rgba(0,0,0,.64), 0 0 38px rgba(255,79,184,.20);
+      transform: translate(-50%, -50%) translateZ(115px) rotateX(0deg) scale(1);
     }
 
-    .nadine-posts-press:hover,
-    .nadine-posts-press:focus-visible {
-      outline: none;
-      box-shadow:
-        0 0 0 12px rgba(255,79,184,.11),
-        0 0 56px rgba(255,79,184,.62),
-        0 22px 56px rgba(0,0,0,.52),
-        inset 0 0 32px rgba(255,255,255,.18);
-      transform: translate(-50%, -50%) scale(1.055);
+    .nadine-post.carousel-prev {
+      z-index: 5;
+      opacity: .46;
+      pointer-events: auto;
+      filter: brightness(.68) saturate(.78);
+      transform: translate(-50%, -50%) translateY(-68%) translateZ(-125px) rotateX(-48deg) scale(.76);
+      transform-origin: center bottom;
     }
 
-    .nadine-posts-press::before,
-    .nadine-posts-press::after {
-      position: absolute;
-      inset: -12px;
-      content: "";
-      pointer-events: none;
-      border: 1px solid rgba(255,199,235,.28);
-      border-radius: 50%;
+    .nadine-post.carousel-next {
+      z-index: 5;
+      opacity: .46;
+      pointer-events: auto;
+      filter: brightness(.68) saturate(.78);
+      transform: translate(-50%, -50%) translateY(68%) translateZ(-125px) rotateX(48deg) scale(.76);
+      transform-origin: center top;
     }
 
-    .nadine-posts-press::after {
-      inset: -24px;
-      border-color: rgba(255,79,184,.14);
+    .nadine-post.carousel-far-prev {
+      z-index: 2;
+      opacity: .13;
+      transform: translate(-50%, -50%) translateY(-105%) translateZ(-330px) rotateX(-66deg) scale(.56);
+      transform-origin: center bottom;
+    }
+
+    .nadine-post.carousel-far-next {
+      z-index: 2;
+      opacity: .13;
+      transform: translate(-50%, -50%) translateY(105%) translateZ(-330px) rotateX(66deg) scale(.56);
+      transform-origin: center top;
+    }
+
+    .nadine-post.carousel-active:hover img {
+      filter: brightness(1.04) saturate(1.05);
+      transform: translateZ(1px) scale(1.012);
     }
 
     .nadine-posts-status {
-      margin-top: 2px;
+      margin-top: 4px;
       color: #cdb6c7;
       font-size: .75rem;
       text-align: center;
-    }
-
-    @keyframes nadinePostsOrbitSpin {
-      from { rotate: 0deg; }
-      to { rotate: -360deg; }
     }
 
     @media (max-width: 720px) {
@@ -2232,43 +2218,65 @@
         padding: 15px 10px 16px;
       }
 
-      .nadine-posts-orbit {
-        --orbit-radius: clamp(155px, 45vw, 205px);
-        height: clamp(430px, 112vw, 535px);
+      .nadine-posts-carousel {
+        height: 530px;
       }
 
       .nadine-post {
-        width: clamp(92px, 25vw, 120px);
-        border-radius: 16px;
+        width: min(78vw, 390px);
+        height: min(72vh, 465px);
+        padding: 9px;
+        border-radius: 18px;
       }
 
-      .nadine-posts-press {
-        width: clamp(92px, 25vw, 118px);
-        height: clamp(92px, 25vw, 118px);
-        font-size: 1.05rem;
+      .nadine-post img,
+      .nadine-post::after {
+        border-radius: 11px;
+      }
+
+      .nadine-post::after { inset: 9px; }
+
+      .nadine-posts-nav {
+        width: 44px;
+        height: 44px;
+        font-size: 1.35rem;
+      }
+
+      .nadine-posts-prev { left: 4px; }
+      .nadine-posts-next { right: 4px; }
+
+      .nadine-post.carousel-prev {
+        opacity: .30;
+        transform: translate(-50%, -50%) translateY(-63%) translateZ(-150px) rotateX(-50deg) scale(.70);
+      }
+
+      .nadine-post.carousel-next {
+        opacity: .30;
+        transform: translate(-50%, -50%) translateY(63%) translateZ(-150px) rotateX(50deg) scale(.70);
       }
     }
 
     @media (max-width: 480px) {
-      .nadine-posts-orbit {
-        --orbit-radius: 148px;
-        height: 405px;
+      .nadine-posts-carousel {
+        height: 485px;
       }
 
       .nadine-post {
-        width: 86px;
+        width: min(76vw, 340px);
+        height: 420px;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .hero-question-quote,
-      .hero-question-quote::after,
-      .nadine-posts-heading,
-      .nadine-posts.is-open .nadine-posts-stage,
-      .nadine-posts.is-open .nadine-posts-orbit::after {
+      .nadine-posts-heading {
         animation: none !important;
       }
+
+      .nadine-post {
+        transition-duration: 0.01ms !important;
+      }
     }
+
 
     /* Lightbox zoom controls */
     .image-lightbox-toolbar {
@@ -2409,26 +2417,6 @@
         0 2px 18px rgba(0, 0, 0, 0.65);
     }
 
-    .nadine-posts-stage {
-      opacity: 1;
-      pointer-events: auto;
-      transform: scale(1) rotate(0deg);
-      animation: nadinePostsOrbitSpin 42s linear infinite;
-    }
-
-    .nadine-posts-orbit::after {
-      opacity: .58;
-      animation: nadinePostsOrbitSpin 42s linear infinite;
-    }
-
-    .nadine-posts-orbit::before {
-      border-color: rgba(255, 139, 214, .42);
-      box-shadow:
-        0 0 30px rgba(255, 79, 184, .16),
-        0 0 70px rgba(255, 79, 184, .08),
-        inset 0 0 38px rgba(255, 79, 184, .08);
-    }
-
     @keyframes questionBorderFlow {
       from { background-position: 0% 50%; }
       to { background-position: 260% 50%; }
@@ -2462,16 +2450,6 @@
       text-shadow: 0 0 16px rgba(255, 151, 216, .24), 0 2px 18px rgba(0,0,0,.7);
     }
 
-    .nadine-posts-press {
-      color: transparent;
-      font-size: 0;
-    }
-
-    .nadine-posts-press::before,
-    .nadine-posts-press::after {
-      content: "";
-    }
-
     @media (max-width: 720px) {
       .hero-question-quote.hero-question-quote-top {
         padding: 20px 18px;
@@ -2483,243 +2461,9 @@
     @media (prefers-reduced-motion: reduce) {
       .hero-question-quote.hero-question-quote-top,
       .hero-question-quote.hero-question-quote-top::before,
-      .hero-question-quote.hero-question-quote-top::after,
-      .nadine-posts-stage,
-      .nadine-posts-orbit::after {
+      .hero-question-quote.hero-question-quote-top::after {
         animation: none !important;
       }
-    }
-
-
-    /* NADINE POSTS
-    .nadine-posts {
-      position: relative;
-    }
-
-    .nadine-posts-press {
-      position: relative;
-      color: transparent;
-      font-size: 0;
-      background:
-        radial-gradient(circle at 35% 28%, rgba(255,255,255,.20), transparent 28%),
-        radial-gradient(circle, #ff4fb8 0%, #c61f85 52%, #05030a 100%);
-      overflow: visible;
-    }
-
-    .nadine-posts-press::before {
-      inset: -14px;
-      border: 1px solid rgba(255,79,184,.58);
-      box-shadow: 0 0 26px rgba(255,79,184,.40);
-    }
-
-    .nadine-posts-press::after {
-      inset: -28px;
-      border: 1px solid rgba(255,255,255,.12);
-      box-shadow: 0 0 42px rgba(255,79,184,.18);
-    }
-
-    .nadine-posts-press.lightning-hit {
-      animation: nadineButtonStrike 620ms ease;
-    }
-
-    .nadine-posts-press.lightning-hit::before,
-    .nadine-posts-press.lightning-hit::after {
-      animation: nadineRingStrike 620ms ease;
-    }
-
-    .nadine-posts-stage,
-    .nadine-posts-orbit::after {
-      opacity: 0;
-      pointer-events: none;
-      animation: none;
-      transition: opacity 420ms ease, transform 520ms cubic-bezier(.22,1,.36,1);
-    }
-
-    .nadine-posts.is-open .nadine-posts-stage {
-      opacity: .26;
-      pointer-events: auto;
-      animation: nadinePostsOrbitSpin 42s linear infinite;
-    }
-
-    .nadine-posts.is-open .nadine-posts-orbit::after {
-      opacity: .54;
-      animation: nadinePostsOrbitSpin 42s linear infinite;
-    }
-
-    .nadine-posts-lightning {
-      position: absolute;
-      inset: 48px 0 auto;
-      z-index: 30;
-      height: 260px;
-      pointer-events: none;
-      opacity: 0;
-      background:
-        linear-gradient(112deg, transparent 0 47%, rgba(255,255,255,.96) 48%, #ff4fb8 49%, transparent 50%),
-        linear-gradient(70deg, transparent 0 53%, #ff4fb8 54%, rgba(255,255,255,.88) 55%, transparent 56%),
-        radial-gradient(circle at 50% 50%, rgba(255,79,184,.35), transparent 42%);
-      filter: drop-shadow(0 0 12px #ff4fb8) drop-shadow(0 0 28px rgba(255,79,184,.85));
-      mix-blend-mode: screen;
-    }
-
-    .nadine-posts.lightning-active .nadine-posts-lightning {
-      animation: nadineLightningFlash 760ms ease;
-    }
-
-    .nadine-posts-showcase {
-      display: none;
-      position: relative;
-      margin-top: 18px;
-      padding: clamp(16px, 2.4vw, 24px);
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 50% 0%, rgba(255,79,184,.16), transparent 36%),
-        linear-gradient(180deg, rgba(8,5,12,.98), rgba(2,2,6,.99));
-      border: 1px solid rgba(255,79,184,.38);
-      border-radius: 24px;
-      box-shadow: 0 24px 70px rgba(0,0,0,.48), 0 0 36px rgba(255,79,184,.12);
-    }
-
-    .nadine-posts.is-open .nadine-posts-showcase {
-      display: block;
-      animation: nadineShowcaseIn 520ms cubic-bezier(.22,1,.36,1);
-    }
-
-    .nadine-showcase-stage {
-      position: relative;
-      display: grid;
-      place-items: center;
-      min-height: clamp(420px, 58vw, 680px);
-      padding: 18px 64px;
-    }
-
-    .nadine-showcase-image {
-      display: block;
-      width: min(820px, 86%);
-      max-height: 620px;
-      object-fit: contain;
-      border: 1px solid rgba(255,199,235,.28);
-      border-radius: 22px;
-      box-shadow: 0 32px 80px rgba(0,0,0,.58), 0 0 44px rgba(255,79,184,.22);
-      transform: scale(.97);
-      transition: opacity 220ms ease, transform 320ms ease;
-      cursor: zoom-in;
-    }
-
-    .nadine-showcase-image.is-changing {
-      opacity: .24;
-      transform: scale(.94);
-    }
-
-    .nadine-showcase-nav {
-      position: absolute;
-      top: 50%;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,.20);
-      background: rgba(5,4,9,.82);
-      color: #fff;
-      font-size: 1.7rem;
-      cursor: pointer;
-      transform: translateY(-50%);
-      box-shadow: 0 0 24px rgba(255,79,184,.18);
-      z-index: 5;
-    }
-
-    .nadine-showcase-nav:hover,
-    .nadine-showcase-nav:focus-visible {
-      background: #ff4fb8;
-      color: #10030b;
-      outline: none;
-      box-shadow: 0 0 34px rgba(255,79,184,.52);
-    }
-
-    .nadine-showcase-prev { left: 12px; }
-    .nadine-showcase-next { right: 12px; }
-
-    .nadine-showcase-thumbs {
-      display: grid;
-      grid-auto-flow: column;
-      grid-auto-columns: clamp(72px, 10vw, 104px);
-      gap: 10px;
-      padding: 10px 4px 2px;
-      overflow-x: auto;
-      scrollbar-width: thin;
-    }
-
-    .nadine-showcase-thumb {
-      padding: 0;
-      aspect-ratio: 4 / 5;
-      overflow: hidden;
-      cursor: pointer;
-      background: #09060d;
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 12px;
-      opacity: .62;
-      transition: opacity 180ms ease, border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
-    }
-
-    .nadine-showcase-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
-    .nadine-showcase-thumb:hover,
-    .nadine-showcase-thumb:focus-visible,
-    .nadine-showcase-thumb.active {
-      opacity: 1;
-      border-color: #ff4fb8;
-      box-shadow: 0 0 20px rgba(255,79,184,.30);
-      transform: translateY(-2px);
-      outline: none;
-    }
-
-    .nadine-showcase-meta {
-      margin-top: 12px;
-      color: var(--pink-light);
-      font-size: .8rem;
-      font-weight: 800;
-      text-align: center;
-      letter-spacing: .04em;
-    }
-
-    @keyframes nadineLightningFlash {
-      0% { opacity: 0; transform: scaleX(.9); }
-      12% { opacity: 1; }
-      20% { opacity: .1; }
-      28% { opacity: 1; }
-      44% { opacity: .18; }
-      58% { opacity: .9; }
-      100% { opacity: 0; transform: scaleX(1.04); }
-    }
-
-    @keyframes nadineButtonStrike {
-      0%,100% { transform: translate(-50%,-50%) scale(1); }
-      18% { transform: translate(-50%,-50%) scale(.94); }
-      36% { transform: translate(-50%,-50%) scale(1.10); box-shadow: 0 0 70px rgba(255,79,184,.95), inset 0 0 30px rgba(255,255,255,.25); }
-      58% { transform: translate(-50%,-50%) scale(1.02); }
-    }
-
-    @keyframes nadineRingStrike {
-      0%,100% { opacity: .45; }
-      35% { opacity: 1; box-shadow: 0 0 55px rgba(255,79,184,.90); }
-    }
-
-    @keyframes nadineShowcaseIn {
-      from { opacity: 0; transform: translateY(12px) scale(.985); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
-    }
-
-    @media (max-width: 720px) {
-      .nadine-showcase-stage { min-height: 420px; padding: 14px 46px; }
-      .nadine-showcase-image { width: 94%; max-height: 470px; }
-      .nadine-showcase-nav { width: 42px; height: 42px; font-size: 1.35rem; }
-      .nadine-showcase-prev { left: 2px; }
-      .nadine-showcase-next { right: 2px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .nadine-posts-lightning,
-      .nadine-posts-press,
-      .nadine-posts-press::before,
-      .nadine-posts-press::after,
-      .nadine-posts-showcase { animation: none !important; }
     }
 
   </style>
@@ -2841,35 +2585,25 @@
 
         <section class="nadine-posts" id="nadine-posts" aria-labelledby="nadine-posts-title">
           <h2 class="nadine-posts-heading" id="nadine-posts-title">Nadine's Posts</h2>
-          <div class="nadine-posts-orbit">
-            <div class="nadine-posts-stage" id="nadine-posts-stage" aria-label="Nadine's Posts image carousel">
+          <div class="nadine-posts-carousel" id="nadine-posts-carousel" aria-label="Nadine's Posts image carousel">
+            <button class="nadine-posts-nav nadine-posts-prev" id="nadine-posts-prev" type="button" aria-label="Previous post">&#10094;</button>
+            <div class="nadine-posts-stage" id="nadine-posts-stage">
               <!-- Upload/replace these 11 files in the NP folder using the same file names, or change each src below. -->
-              <figure class="nadine-post" style="--i:0"><img src="Np/N1.png" alt="Nadine's post 1" loading="lazy" /></figure>
-              <figure class="nadine-post" style="--i:1"><img src="Np/N2.png" alt="Nadine's post 2" loading="lazy" /></figure>
-              <figure class="nadine-post" style="--i:2"><img src="Np/N3.png" alt="Nadine's post 3" loading="lazy" /></figure>
-              <figure class="nadine-post" style="--i:3"><img src="Np/N4.png" alt="Nadine's post 4" loading="lazy" /></figure>
-              <figure class="nadine-post" style="--i:4"><img src="Np/N5.png" alt="Nadine's post 5" loading="lazy" /></figure>
-              <figure class="nadine-post" style="--i:5"><img src="Np/N6.png" alt="Nadine's post 6" loading="lazy" /></figure>
-              <figure class="nadine-post" style="--i:6"><img src="Np/N7.png" alt="Nadine's post 7" loading="lazy" /></figure>
-              <figure class="nadine-post" style="--i:7"><img src="Np/N8.png" alt="Nadine's post 8" loading="lazy" /></figure>
-              <figure class="nadine-post" style="--i:8"><img src="Np/N9.png" alt="Nadine's post 9" loading="lazy" /></figure>
-              <figure class="nadine-post" style="--i:9"><img src="Np/N10.png" alt="Nadine's post 10" loading="lazy" /></figure>
-              <figure class="nadine-post" style="--i:10"><img src="Np/N11.png" alt="Nadine's post 11" loading="lazy" /></figure>
+              <figure class="nadine-post"><img src="Np/N1.png" alt="Nadine's post 1" loading="lazy" /></figure>
+              <figure class="nadine-post"><img src="Np/N2.png" alt="Nadine's post 2" loading="lazy" /></figure>
+              <figure class="nadine-post"><img src="Np/N3.png" alt="Nadine's post 3" loading="lazy" /></figure>
+              <figure class="nadine-post"><img src="Np/N4.png" alt="Nadine's post 4" loading="lazy" /></figure>
+              <figure class="nadine-post"><img src="Np/N5.png" alt="Nadine's post 5" loading="lazy" /></figure>
+              <figure class="nadine-post"><img src="Np/N6.png" alt="Nadine's post 6" loading="lazy" /></figure>
+              <figure class="nadine-post"><img src="Np/N7.png" alt="Nadine's post 7" loading="lazy" /></figure>
+              <figure class="nadine-post"><img src="Np/N8.png" alt="Nadine's post 8" loading="lazy" /></figure>
+              <figure class="nadine-post"><img src="Np/N9.png" alt="Nadine's post 9" loading="lazy" /></figure>
+              <figure class="nadine-post"><img src="Np/N10.png" alt="Nadine's post 10" loading="lazy" /></figure>
+              <figure class="nadine-post"><img src="Np/N11.png" alt="Nadine's post 11" loading="lazy" /></figure>
             </div>
-            <button class="nadine-posts-press" id="nadine-posts-press" type="button" aria-expanded="false" aria-controls="nadine-posts-stage nadine-posts-showcase" aria-label="Show Nadine posts slideshow"></button>
+            <button class="nadine-posts-nav nadine-posts-next" id="nadine-posts-next" type="button" aria-label="Next post">&#10095;</button>
           </div>
-          <div class="nadine-posts-lightning" aria-hidden="true"></div>
           <div class="nadine-posts-status" id="nadine-posts-status" aria-live="polite">1 / 11</div>
-
-          <div class="nadine-posts-showcase" id="nadine-posts-showcase" aria-hidden="true">
-            <div class="nadine-showcase-stage">
-              <button class="nadine-showcase-nav nadine-showcase-prev" id="nadine-showcase-prev" type="button" aria-label="Previous post">&#10094;</button>
-              <img class="nadine-showcase-image" id="nadine-showcase-image" src="NP/Post1.png" alt="Nadine's post 1" />
-              <button class="nadine-showcase-nav nadine-showcase-next" id="nadine-showcase-next" type="button" aria-label="Next post">&#10095;</button>
-            </div>
-            <div class="nadine-showcase-thumbs" id="nadine-showcase-thumbs" aria-label="Select Nadine post"></div>
-            <div class="nadine-showcase-meta" id="nadine-showcase-meta">1 / 11</div>
-          </div>
         </section>
       </div>
 
@@ -4764,99 +4498,109 @@
       updateRelationshipCarousel();
     });
 
-    const nadinePostsSection = document.getElementById("nadine-posts");
+    const nadinePostsCarousel = document.getElementById("nadine-posts-carousel");
     const nadinePostsStage = document.getElementById("nadine-posts-stage");
     const nadinePostsStatus = document.getElementById("nadine-posts-status");
-    const nadinePostsPress = document.getElementById("nadine-posts-press");
-    const nadinePostsShowcase = document.getElementById("nadine-posts-showcase");
-    const nadineShowcaseImage = document.getElementById("nadine-showcase-image");
-    const nadineShowcasePrev = document.getElementById("nadine-showcase-prev");
-    const nadineShowcaseNext = document.getElementById("nadine-showcase-next");
-    const nadineShowcaseThumbs = document.getElementById("nadine-showcase-thumbs");
-    const nadineShowcaseMeta = document.getElementById("nadine-showcase-meta");
+    const nadinePostsPrev = document.getElementById("nadine-posts-prev");
+    const nadinePostsNext = document.getElementById("nadine-posts-next");
 
-    if (nadinePostsSection && nadinePostsStage && nadinePostsPress) {
+    if (nadinePostsCarousel && nadinePostsStage) {
       const postCards = Array.from(nadinePostsStage.querySelectorAll(".nadine-post"));
-      const postImages = postCards.map((card) => card.querySelector("img")).filter(Boolean);
       let nadinePostIndex = 0;
+      let pointerStartX = 0;
+      let pointerStartY = 0;
+      let pointerMoved = false;
+
+      function circularPostDistance(index, activeIndex, total) {
+        let distance = index - activeIndex;
+        if (distance > total / 2) distance -= total;
+        if (distance < -total / 2) distance += total;
+        return distance;
+      }
+
+      function updateNadinePostsCarousel() {
+        postCards.forEach((card, index) => {
+          const distance = circularPostDistance(index, nadinePostIndex, postCards.length);
+          card.classList.remove(
+            "carousel-active",
+            "carousel-prev",
+            "carousel-next",
+            "carousel-far-prev",
+            "carousel-far-next"
+          );
+
+          if (distance === 0) card.classList.add("carousel-active");
+          else if (distance === -1) card.classList.add("carousel-prev");
+          else if (distance === 1) card.classList.add("carousel-next");
+          else if (distance === -2) card.classList.add("carousel-far-prev");
+          else if (distance === 2) card.classList.add("carousel-far-next");
+
+          const isVisible = Math.abs(distance) <= 2;
+          card.setAttribute("aria-hidden", isVisible ? "false" : "true");
+          card.tabIndex = isVisible ? 0 : -1;
+        });
+
+        if (nadinePostsStatus) {
+          nadinePostsStatus.textContent = `${nadinePostIndex + 1} / ${postCards.length}`;
+        }
+      }
+
+      function moveNadinePosts(direction) {
+        nadinePostIndex = (nadinePostIndex + direction + postCards.length) % postCards.length;
+        updateNadinePostsCarousel();
+      }
 
       postCards.forEach((card, index) => {
-        card.style.setProperty("--i", index);
         card.setAttribute("aria-label", `Nadine's post ${index + 1} of ${postCards.length}`);
-      });
-
-      function showNadinePost(index, animate = true) {
-        if (!postImages.length || !nadineShowcaseImage) return;
-        nadinePostIndex = (index + postImages.length) % postImages.length;
-        const sourceImage = postImages[nadinePostIndex];
-
-        if (animate) nadineShowcaseImage.classList.add("is-changing");
-        window.setTimeout(() => {
-          nadineShowcaseImage.src = sourceImage.currentSrc || sourceImage.src;
-          nadineShowcaseImage.alt = sourceImage.alt || `Nadine's post ${nadinePostIndex + 1}`;
-          nadineShowcaseImage.classList.remove("is-changing");
-        }, animate ? 120 : 0);
-
-        if (nadineShowcaseMeta) nadineShowcaseMeta.textContent = `${nadinePostIndex + 1} / ${postImages.length}`;
-        if (nadinePostsStatus) nadinePostsStatus.textContent = `${nadinePostIndex + 1} / ${postImages.length}`;
-        if (nadineShowcaseThumbs) {
-          nadineShowcaseThumbs.querySelectorAll(".nadine-showcase-thumb").forEach((button, buttonIndex) => {
-            button.classList.toggle("active", buttonIndex === nadinePostIndex);
-            button.setAttribute("aria-current", buttonIndex === nadinePostIndex ? "true" : "false");
-          });
-        }
-      }
-
-      if (nadineShowcaseThumbs) {
-        postImages.forEach((image, index) => {
-          const button = document.createElement("button");
-          button.type = "button";
-          button.className = "nadine-showcase-thumb";
-          button.setAttribute("aria-label", `Show Nadine's post ${index + 1}`);
-          const thumb = document.createElement("img");
-          thumb.src = image.currentSrc || image.src;
-          thumb.alt = image.alt || `Nadine's post ${index + 1}`;
-          thumb.loading = "lazy";
-          button.appendChild(thumb);
-          button.addEventListener("click", () => showNadinePost(index));
-          nadineShowcaseThumbs.appendChild(button);
+        card.addEventListener("click", () => {
+          const distance = circularPostDistance(index, nadinePostIndex, postCards.length);
+          if (distance < 0) moveNadinePosts(-1);
+          else if (distance > 0) moveNadinePosts(1);
+          else {
+            const image = card.querySelector("img");
+            if (image) openImageLightbox(image);
+          }
         });
-      }
+      });
 
-      function triggerNadineLightning() {
-        nadinePostsSection.classList.remove("lightning-active");
-        nadinePostsPress.classList.remove("lightning-hit");
-        void nadinePostsSection.offsetWidth;
-        nadinePostsSection.classList.add("lightning-active");
-        nadinePostsPress.classList.add("lightning-hit");
-        window.setTimeout(() => {
-          nadinePostsSection.classList.remove("lightning-active");
-          nadinePostsPress.classList.remove("lightning-hit");
-        }, 800);
-      }
+      nadinePostsPrev?.addEventListener("click", () => moveNadinePosts(-1));
+      nadinePostsNext?.addEventListener("click", () => moveNadinePosts(1));
 
-      nadinePostsPress.addEventListener("click", () => {
-        const willOpen = !nadinePostsSection.classList.contains("is-open");
-        triggerNadineLightning();
-        nadinePostsSection.classList.toggle("is-open", willOpen);
-        nadinePostsPress.setAttribute("aria-expanded", String(willOpen));
-        if (nadinePostsShowcase) nadinePostsShowcase.setAttribute("aria-hidden", String(!willOpen));
-        if (willOpen) {
-          showNadinePost(nadinePostIndex, false);
-          window.setTimeout(() => nadinePostsShowcase?.scrollIntoView({ behavior: "smooth", block: "nearest" }), 260);
+      nadinePostsCarousel.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+          event.preventDefault();
+          moveNadinePosts(-1);
+        }
+        if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+          event.preventDefault();
+          moveNadinePosts(1);
         }
       });
 
-      nadineShowcasePrev?.addEventListener("click", () => showNadinePost(nadinePostIndex - 1));
-      nadineShowcaseNext?.addEventListener("click", () => showNadinePost(nadinePostIndex + 1));
-
-      nadinePostsShowcase?.addEventListener("keydown", (event) => {
-        if (event.key === "ArrowLeft") { event.preventDefault(); showNadinePost(nadinePostIndex - 1); }
-        if (event.key === "ArrowRight") { event.preventDefault(); showNadinePost(nadinePostIndex + 1); }
+      nadinePostsCarousel.addEventListener("pointerdown", (event) => {
+        pointerStartX = event.clientX;
+        pointerStartY = event.clientY;
+        pointerMoved = false;
       });
 
-      showNadinePost(0, false);
-      if (nadinePostsStatus) nadinePostsStatus.textContent = `${postImages.length} posts`;
+      nadinePostsCarousel.addEventListener("pointermove", (event) => {
+        if (Math.abs(event.clientX - pointerStartX) > 12 || Math.abs(event.clientY - pointerStartY) > 12) {
+          pointerMoved = true;
+        }
+      });
+
+      nadinePostsCarousel.addEventListener("pointerup", (event) => {
+        if (!pointerMoved) return;
+        const deltaX = event.clientX - pointerStartX;
+        const deltaY = event.clientY - pointerStartY;
+        const strongestMovement = Math.abs(deltaY) >= Math.abs(deltaX) ? deltaY : -deltaX;
+        if (Math.max(Math.abs(deltaX), Math.abs(deltaY)) > 45) {
+          moveNadinePosts(strongestMovement > 0 ? -1 : 1);
+        }
+      });
+
+      nadinePostsCarousel.tabIndex = 0;
+      updateNadinePostsCarousel();
     }
 
 
